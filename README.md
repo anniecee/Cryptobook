@@ -14,6 +14,7 @@ Transaction
 - Set up client:
 ```
 cd client
+npm i -g yarn
 npm i
 yarn start
 ```
