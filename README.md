@@ -8,3 +8,19 @@ profile page
 loggedIn weird bug
 Followers
 Transaction
+
+
+##Getting started:
+- Set up client:
+```
+cd client
+npm i
+yarn start
+```
+
+- Set up server:
+```
+cd server
+npm i
+npm run dev
+```
