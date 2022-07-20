@@ -1,0 +1,12 @@
+.SignOut {
+    width: 100%;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignOut button:hover{
+    cursor: pointer;
+}
