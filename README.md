@@ -10,7 +10,7 @@ Followers
 Transaction
 
 
-##Getting started:
+## Getting started:
 - Set up client:
 ```
 cd client
