@@ -1,2 +1,6 @@
 client/node_modules
 server/node_modules
+MySQLWorkbench
+.DS_Store
+cryptoDatabase.mwb
+cryptoDatabase.mwb.bak
