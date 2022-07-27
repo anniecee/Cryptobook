@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`account` (
   `balance` DECIMAL(10) NULL,
   `userID_account` CHAR(40) NULL,
   PRIMARY KEY (`accountID`),
-  INDEX `userID_account_idx` (`userID_account` ASC) VISIBLE,
+  INDEX `userID_account_idx` (`userID_account` ASC),
   CONSTRAINT `userID`
     FOREIGN KEY (`userID_account`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`addBanking` (
   `cardID_addBanking` CHAR(40) NOT NULL,
   `userID_addBanking` CHAR(40) NOT NULL,
   PRIMARY KEY (`cardID_addBanking`, `userID_addBanking`),
-  INDEX `userID_addBanking_idx` (`userID_addBanking` ASC) VISIBLE,
+  INDEX `userID_addBanking_idx` (`userID_addBanking` ASC),
   CONSTRAINT `cardID_addBanking`
     FOREIGN KEY (`cardID_addBanking`)
     REFERENCES `cryptodatabase`.`bankingInfo` (`cardID_bankinginfo`)
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`buyPost` (
   `buyPrice` DECIMAL(10) NULL,
   `buyCrypto` CHAR(10) NULL,
   PRIMARY KEY (`buypostID`, `transactionID_buy`),
-  INDEX `transactionID_buy_idx` (`transactionID_buy` ASC) VISIBLE,
+  INDEX `transactionID_buy_idx` (`transactionID_buy` ASC),
   CONSTRAINT `buypostID`
     FOREIGN KEY (`buypostID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`credentials` (
   `userID_credential` CHAR(40) NULL,
   `password_credential` CHAR(40) NULL,
   PRIMARY KEY (`loginID_credential`),
-  INDEX `userID_credential_idx` (`userID_credential` ASC) VISIBLE,
+  INDEX `userID_credential_idx` (`userID_credential` ASC),
   CONSTRAINT `userID_credential`
     FOREIGN KEY (`userID_credential`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`follows` (
   `followed_userID` CHAR(40) NOT NULL,
   `following_userID` CHAR(40) NOT NULL,
   PRIMARY KEY (`followed_userID`, `following_userID`),
-  INDEX `followed_userID_idx` (`followed_userID` ASC) VISIBLE,
+  INDEX `followed_userID_idx` (`followed_userID` ASC) ,
   CONSTRAINT `following_userID`
     FOREIGN KEY (`following_userID`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`influencerUser` (
   `influencerID` CHAR(40) NOT NULL,
   `mostEngagedPostID` CHAR(40) NULL,
   PRIMARY KEY (`influencerID`),
-  INDEX `mostEngagedPostID_idx` (`mostEngagedPostID` ASC) VISIBLE,
+  INDEX `mostEngagedPostID_idx` (`mostEngagedPostID` ASC) ,
   CONSTRAINT `influencerID`
     FOREIGN KEY (`influencerID`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`likeEvent` (
   `postID_likeEvent` CHAR(40) NOT NULL,
   `likeUserID` CHAR(40) NULL,
   PRIMARY KEY (`postID_likeEvent`),
-  INDEX `likeUserID_idx` (`likeUserID` ASC) VISIBLE,
+  INDEX `likeUserID_idx` (`likeUserID` ASC) ,
   CONSTRAINT `postID_likeEvent`
     FOREIGN KEY (`postID_likeEvent`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`post` (
   `text` CHAR(200) NULL,
   `likeCount` INT NULL,
   PRIMARY KEY (`postID`),
-  INDEX `userID_post_idx` (`userID_post` ASC) VISIBLE,
+  INDEX `userID_post_idx` (`userID_post` ASC),
   CONSTRAINT `userID_post`
     FOREIGN KEY (`userID_post`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -303,8 +303,8 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`transactionStoredInAccount` (
   `fromAccountID` CHAR(40) NULL,
   `toAccountID` CHAR(40) NULL,
   PRIMARY KEY (`transactionID_stored`),
-  INDEX `toAccountID_idx` (`toAccountID` ASC) VISIBLE,
-  INDEX `fromAccountID_idx` (`fromAccountID` ASC) VISIBLE,
+  INDEX `toAccountID_idx` (`toAccountID` ASC) ,
+  INDEX `fromAccountID_idx` (`fromAccountID` ASC),
   CONSTRAINT `transactionID_stored`
     FOREIGN KEY (`transactionID_stored`)
     REFERENCES `cryptodatabase`.`transaction` (`transactionID`)
