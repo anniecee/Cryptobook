@@ -7,10 +7,12 @@ function CreatePost() {
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
     const [img, setImg] = useState([]);
+    const [price, setPrice] = useState();  // return integer?
+    const [crypto, setCrypto] = React.useState("");  
+    const [type, setType] = useState("");  
 
     let navigate = useNavigate();
-
-    // Option for buy/sell/...
+    
     const upload = () => {
         const formData = new FormData();
         formData.append("file", img[0]);
@@ -24,9 +26,12 @@ function CreatePost() {
                     title: title,
                     caption: caption,
                     imgId: imgId,
+                    type: type,
+                    crypto: crypto,
+                    price: price,
                     userId: localStorage.getItem("username")
                 }).then(()=>{
-                    navigate('/');
+                    navigate('../');
                 });
              });
     };
@@ -43,6 +48,28 @@ function CreatePost() {
           onChange={(event)=>{
             setCaption(event.target.value)
           }}/>
+          <select className="PostTypeSelection"
+            onChange={(event)=>{
+              setType(event.target.value)
+            }}
+          >
+            <option value="normal">Normal post</option>
+            <option value="buy">Buy post</option>
+            <option value="sell">Sell post</option>
+          </select>
+          <input
+            type="text" placeholder="Crypto"
+            onChange={(event)=>{
+              setCrypto(event.target.value)
+            }}
+          />
+          <input 
+            type="number" 
+            placeholder ="Set price" 
+            onChange={(event)=>{
+              setPrice(event.target.value)
+            }}
+          />
           <input type="file" 
           onChange={(event)=>{
             setImg(event.target.files)

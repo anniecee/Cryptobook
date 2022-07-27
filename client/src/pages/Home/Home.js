@@ -3,12 +3,12 @@ import "./Home.css"
 import {Image} from 'cloudinary-react'
 import  Axios  from 'axios';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import {useNavigate} from 'react-router-dom';
+//import {useNavigate} from 'react-router-dom';
 
 function Home() {
 
   const [posts, setPosts] = useState([]);
-  let navigate = useNavigate(); // use this to navigate to new url path
+  //let navigate = useNavigate(); // use this to navigate to new url path
 
   // Check login state
   useEffect(() => {
@@ -64,20 +64,18 @@ function Home() {
               publicId={val.imgId} />
           </div>
         
-        <div className='Content'>
-          <div className='title'>
-            {" "}
-            {val.title} / by @{val.userId}
+          <div className='Content'>
+            <div className='title'>
+              {" "}
+              {val.title} / by @{val.userId}
+            </div>
+            <div className='caption'>{val.caption}</div>
           </div>
-          <div className='caption'>{val.caption}</div>
-        </div>
           <div className='Interactions'>
             <ThumbUpAltIcon id="likeButton"
-            onClick={()=>{
-              likePost(val.postId, key);
-            }}/>
+            onClick={()=>{likePost(val.postId, key);}}/>
             {val.likes}
-            <div>
+            <div className='DeleteButton'>
               <button onClick={()=>{deletePost(val.postId);}}>Delete</button>
             </div>
           </div>

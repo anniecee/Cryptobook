@@ -10,7 +10,7 @@
 
 .Home .Post {
     width: 600px;
-    height: 550px;
+    height: 600px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -23,6 +23,8 @@
 
 .Home .Post .Image img{
     width: 100%;
+    height: auto;
+    object-fit:cover;
 }
 
 .Home .Post .Content {
@@ -58,7 +60,6 @@
     cursor: pointer;
     color: black;
 }
-
 
 
 

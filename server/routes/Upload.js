@@ -8,6 +8,7 @@ router.post('/', (req, res) =>{
     const caption = req.body.caption;
     const imgId = req.body.imgId;
     const userId = req.body.userId;
+    // update other attributes
 
     con.query("INSERT INTO post (title, caption, imgId, userId) VALUES (?, ?, ?, ?);",
     [title, caption, imgId, userId],
