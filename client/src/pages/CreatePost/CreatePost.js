@@ -10,6 +10,7 @@ function CreatePost() {
 
     let navigate = useNavigate();
 
+    // Option for buy/sell/...
     const upload = () => {
         const formData = new FormData();
         formData.append("file", img[0]);

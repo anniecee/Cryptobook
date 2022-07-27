@@ -50,6 +50,21 @@ router.post("/like", (req, res)=>{
     )
 })
 
+router.delete("/delete", (req, res)=>{
+
+    const postId = req.body.postId;
+    console.log(postId);
+    
+    con.query("DELETE FROM post WHERE postId = ?",
+    postId,
+     (err, results)=>{
+        if(err){
+            console.log(err);
+        }
+        res.send(results);
+    });
+})
+
 
 
 module.exports = router;
