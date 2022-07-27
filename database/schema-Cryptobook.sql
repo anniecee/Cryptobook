@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`addBanking` (
   `cardID_addBanking` CHAR(40) NOT NULL,
   `userID_addBanking` CHAR(40) NOT NULL,
   PRIMARY KEY (`cardID_addBanking`, `userID_addBanking`),
-  INDEX `userID_addBanking_idx` (`userID_addBanking` ASC) ,
+  INDEX `userID_addBanking_idx` (`userID_addBanking` ASC),
   CONSTRAINT `cardID_addBanking`
     FOREIGN KEY (`cardID_addBanking`)
     REFERENCES `cryptodatabase`.`bankingInfo` (`cardID_bankinginfo`)
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`buyPost` (
   `buyPrice` DECIMAL(10) NULL,
   `buyCrypto` CHAR(10) NULL,
   PRIMARY KEY (`buypostID`, `transactionID_buy`),
-  INDEX `transactionID_buy_idx` (`transactionID_buy` ASC) ,
+  INDEX `transactionID_buy_idx` (`transactionID_buy` ASC),
   CONSTRAINT `buypostID`
     FOREIGN KEY (`buypostID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`follows` (
   `followed_userID` CHAR(40) NOT NULL,
   `following_userID` CHAR(40) NOT NULL,
   PRIMARY KEY (`followed_userID`, `following_userID`),
-  INDEX `followed_userID_idx` (`followed_userID` ASC),
+  INDEX `followed_userID_idx` (`followed_userID` ASC) ,
   CONSTRAINT `following_userID`
     FOREIGN KEY (`following_userID`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`post` (
   `text` CHAR(200) NULL,
   `likeCount` INT NULL,
   PRIMARY KEY (`postID`),
-  INDEX `userID_post_idx` (`userID_post` ASC) ,
+  INDEX `userID_post_idx` (`userID_post` ASC),
   CONSTRAINT `userID_post`
     FOREIGN KEY (`userID_post`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`transactionStoredInAccount` (
   `toAccountID` CHAR(40) NULL,
   PRIMARY KEY (`transactionID_stored`),
   INDEX `toAccountID_idx` (`toAccountID` ASC) ,
-  INDEX `fromAccountID_idx` (`fromAccountID` ASC) ,
+  INDEX `fromAccountID_idx` (`fromAccountID` ASC),
   CONSTRAINT `transactionID_stored`
     FOREIGN KEY (`transactionID_stored`)
     REFERENCES `cryptodatabase`.`transaction` (`transactionID`)
