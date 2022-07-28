@@ -7,12 +7,12 @@ function Navbar() {
 
   useEffect(() => {
     setLoggedIn(localStorage.getItem("loggedIn"));
-  }, [localStorage.getItem("loggedIn")]);
+  }, []);
 
   return (
     <div className='Navbar'>
         <a href="/">Home</a>
-        {loggedIn ? (
+        {loggedIn === 'true' ? (
           <>
             <a href="/profile">Profile</a>
             <a href="/createPost">Post</a>

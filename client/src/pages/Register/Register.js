@@ -1,28 +1,49 @@
 import React, {useState} from 'react'
 import './Register.css'
 import Axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 
 function Register() {
 
-  const [username, setUsername] = useState("");
+  const [loginID, setLoginID] = useState("");
   const [password, setPassword] = useState("");
 
+  const [errMsg, setErrMsg] = useState("");
+
+  let navigate = useNavigate();
+
   const register = () => {
-    Axios.post("http://localhost:3001/user/register", {
-      username: username,
+
+    Axios.post("http://localhost:3001/user/login", {
+      loginID: loginID,
       password: password
-    }).then((response) => {
-      console.log(response);
+    }).then((response)=>{
+      if(response.data.loggedIn === false && response.data.message !== "Wrong password"){
+        Axios.post("http://localhost:3001/user/register", {
+          loginID: loginID,
+          password: password
+        }).then((response2) => {
+          localStorage.setItem("loggedIn", true);
+          localStorage.setItem("loginID", loginID);
+
+          navigate('/');
+          window.location.reload();
+        });
+      } else if (response.data.loggedIn === true || response.data.message === "Wrong password"){
+        setErrMsg("User Already exists.");
+      }
     });
+
+    
   };
 
   return (
     <div className="Register">
       <h1>Registration</h1>
         <div className="RegisterForm">
-          <input type="text" placeholder='Username' onChange={
+          <input type="text" placeholder='LoginID' onChange={
             (event)=>{
-              setUsername(event.target.value);
+              setLoginID(event.target.value);
             }
           }/>
           <input type="password" placeholder='Password' onChange={
@@ -31,6 +52,7 @@ function Register() {
             }
           }/>
           <button onClick={register}>Register</button>
+          <h1 style={{color: 'red'}}>{errMsg}</h1>
         </div>
     </div>
   )

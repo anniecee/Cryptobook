@@ -31,9 +31,6 @@ router.post("/like", (req, res)=>{
     const userLikes = req.body.userLikes;
     const postId = req.body.postId;
 
-    //console.log(userLikes);
-    //console.log(postId);
-
     con.query("INSERT INTO likes (userLikes, postId) VALUES (?, ?);",
     [userLikes, postId],
     (err, results)=>{
@@ -49,6 +46,8 @@ router.post("/like", (req, res)=>{
         }
     )
 })
+
+
 
 
 

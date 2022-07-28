@@ -5,11 +5,18 @@ const con = require('../config/db');
 
 router.post('/register', (req, res) =>{
 
-    const username = req.body.username;
+    const loginID = req.body.loginID;
     const password = req.body.password;
 
-    con.query("INSERT INTO user (username, password) VALUES (?, ?);",
-    [username, password],
+    con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
+    [loginID, loginID, password],
+    ((err, results)=>{
+        console.log(err)
+    })
+    )
+
+    con.query("INSERT INTO user (userID, loginID, password) VALUES (?, ?, ?);",
+    [loginID, loginID, password],
     (err, results) => {
         console.log(err);
         res.send(results);
@@ -18,20 +25,21 @@ router.post('/register', (req, res) =>{
 
 router.post('/login', (req, res) =>{
 
-    const username = req.body.username;
+    const loginID = req.body.loginID;
     const password = req.body.password;
 
-    con.query("SELECT * FROM user WHERE username = ?;",
-    username,
+    con.query("SELECT * FROM user WHERE loginID = ?;",
+    loginID,
     (err, results) => {
         if(err){
             console.log(err);
         }
         if(results.length > 0){
+
             if(password == results[0].password){
                 res.json({
                     loggedIn: true,
-                    username: username
+                    loginID: loginID
                 })
             }else{
                 res.json({

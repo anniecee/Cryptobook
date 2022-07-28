@@ -17,20 +17,16 @@ function Home() {
   useEffect(()=>{
     Axios.get("http://localhost:3001/upload").then((response)=>{
       setPosts(response.data);
-      console.log(response.data);
     });
   }, []);
 
   const likePost = (postId, key)=>{
-    var tempLikes = posts;
-    tempLikes[key].likes = tempLikes[key].likes + 1;
-
     Axios.post("http://localhost:3001/upload/like",
     {
       userLikes: localStorage.getItem("username"),
       postId: postId
     }).then((response)=>{
-      setPosts(tempLikes);
+
     });
   }
 
@@ -47,16 +43,16 @@ function Home() {
         <div className='Content'>
           <div className='title'>
             {" "}
-            {val.title} / by @{val.userId}
+            {val.title} / by @{val.userID_post}
           </div>
-          <div className='caption'>{val.caption}</div>
+          <div className='caption'>{val.text}</div>
         </div>
           <div className='Interactions'>
             <ThumbUpAltIcon id="likeButton"
             onClick={()=>{
               likePost(val.postId, key);
             }}/>
-            {val.likes}
+            {(val.likeCount)}
           </div>
         </div>
         )

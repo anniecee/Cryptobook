@@ -27,8 +27,8 @@ CREATE TABLE `credentials` (
   `userID_credential` char(40) DEFAULT NULL,
   `password_credential` char(40) DEFAULT NULL,
   PRIMARY KEY (`loginID_credential`),
-  KEY `userID_credential_idx` (`userID_credential`),
-  CONSTRAINT `userID_credential` FOREIGN KEY (`userID_credential`) REFERENCES `user` (`userID`)
+  /*KEY `userID_credential_idx` (`userID_credential`),*/
+  /*CONSTRAINT `userID_credential` FOREIGN KEY (`userID_credential`) REFERENCES `user` (`userID`)*/
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
