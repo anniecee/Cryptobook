@@ -8,7 +8,7 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 function Home() {
 
   const [posts, setPosts] = useState([]);
-  //let navigate = useNavigate(); // use this to navigate to new url path
+  const [postType, setPostType] = useState({});
 
   // Check login state
   useEffect(() => {
@@ -25,63 +25,72 @@ function Home() {
     });
   }, []);
 
+  // Set post types (buy/sell + price + crypto)
+  // TBU
+
   // Like function 
+  // TBU
   // (Need to change multiple likes)
-  const likePost = (postId, key)=>{
+  const likePost = (postID, key)=>{
    
     Axios.post("http://localhost:3001/upload/like",
     {
       userLikes: localStorage.getItem("username"),
-      postId: postId
+      postID: postID
     }).then((response)=>{
       window.location.reload(); // reload page
     });
   }
 
-  // Add buy & sell button => when it's active, manipulate Transaction table
-
   // Add delete function
-  const deletePost = (postId, key)=>{
-    console.log(postId);   
+  // TBU
+  const deletePost = (postID, key)=>{
+    console.log(postID);   
     Axios.delete("http://localhost:3001/upload/delete/",
     {data: {
-      postId: postId
+      postID: postID
     }}).then((response)=>{
       window.location.reload(); // reload page
     });
   }
 
-  // Maybe have a separate page on nav bar for search 
-  // (post max like count/ post by username/ post by name/ post by Crypto)
-
+  // Return front end
   return (
     <div className="Home">
-      {posts.map((val, key)=>{
+       {/* Display post */}
+       {posts.map((val, key)=>{
         return(
-        <div className='Post'>
-          <div className='Image'>
-            <Image cloudName="djmmryhbz" 
-              publicId={val.imgId} />
-          </div>
-        
-          <div className='Content'>
-            <div className='title'>
-              {" "}
-              {val.title} / by @{val.userId}
+
+          <div className='Post'> 
+            {/* Image - NEED TO CHANGE FOR imgId*/}
+            <div className='Image'>
+              <Image cloudName="djmmryhbz" 
+                publicId={val.imgId} />
             </div>
-            <div className='caption'>{val.caption}</div>
-          </div>
-          <div className='Interactions'>
-            <ThumbUpAltIcon id="likeButton"
-            onClick={()=>{likePost(val.postId, key);}}/>
-            {val.likes}
-            <div className='DeleteButton'>
-              <button onClick={()=>{deletePost(val.postId);}}>Delete</button>
+
+            {/* Content */}
+            <div className='Content'>
+              <div className='title'>
+                {" "}
+                {val.title} / by @{val.userName_user}
+              </div>
+              <div className='caption'>{val.text}</div>
             </div>
+
+            {/* Interaction */}
+            <div className='Interactions'>
+              <ThumbUpAltIcon id="likeButton"
+              onClick={()=>{likePost(val.likeCount, key);}}/>
+              {val.likeCount}
+              <div className='DeleteButton'>
+                <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
+              </div>
+            </div>
+
           </div>
-        </div>
-        )
-      })}
+          )
+        })}
+        {/* End - Display post */}
     </div>
   )
 } 

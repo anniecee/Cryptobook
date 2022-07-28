@@ -7,8 +7,8 @@ function CreatePost() {
     const [title, setTitle] = useState("");
     const [caption, setCaption] = useState("");
     const [img, setImg] = useState([]);
-    const [price, setPrice] = useState();  // return integer?
-    const [crypto, setCrypto] = React.useState("");  
+    const [price, setPrice] = useState(0); 
+    const [crypto, setCrypto] = useState("");  
     const [type, setType] = useState("");  
 
     let navigate = useNavigate();
