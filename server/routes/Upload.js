@@ -4,7 +4,7 @@ const con = require('../config/db');
 
 // Select all data from 4 tables: Post/ BuyPost/ SellPost / User
 router.get("/", (req, res) => {
-    con.query("SELECT * FROM post JOIN buypost ON postID = buypostID JOIN sellpost ON postID = sell_postID JOIN user ON userID_post = userID"
+    con.query("SELECT * FROM post LEFT JOIN buypost ON postID = buypostID LEFT JOIN sellpost ON postID = sell_postID JOIN user ON userID_post = userID;"
     , (err, results)=>{
         if(err){
             console.log(err);
@@ -34,26 +34,29 @@ router.post('/', (req, res) =>{
 // TBU
 router.post("/like", (req, res)=>{
 
-    const userLikes = req.body.userLikes;
+    const loginIDLike = req.body.loginIDLike;
     const postID = req.body.postID;
 
     // Insert like event
+    // (Now it inserts username, not userID => need to change)
+    //const userIDquery = con.query("SELECT userID FROM user WHERE loginID = ?", loginIDLike);
     con.query("INSERT INTO likeevent (postID_likeEvent, likeUserID) VALUES (?, ?);",
-    [postID, userLikes],
+    [postID, loginIDLike],
     (err, results)=>{
         if(err){
             console.log(err);
         }
-        
-        // Update likeCount of post
-        con.query("UPDATE post SET likeCount = likeCount + 1 WHERE postID = ?", 
-        postID,
-        (err2, result2)=>{
-            if(err2){
-                console.log(err2);
+        else {
+            // Update likeCount of post
+            con.query("UPDATE post SET likeCount = likeCount + 1 WHERE postID = ?", 
+            postID,
+            (err2, result2)=>{
+                if(err2){
+                    console.log(err2);
+                }
+                res.send(results);
+            });
             }
-            res.send(results);
-        });
         }
     )
 })

@@ -136,12 +136,8 @@ function SearchPost() {
               <div className='caption'>{val.text}</div>
             </div>
             <div className='Interactions'>
-              <ThumbUpAltIcon id="likeButton"
-              onClick={()=>{likePost(val.likeCount, key);}}/>
+              <ThumbUpAltIcon id="likeButton"/>
               {val.likeCount}
-              <div className='DeleteButton'>
-                <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
-              </div>
             </div>
           </div>
           )

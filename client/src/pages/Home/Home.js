@@ -21,6 +21,7 @@ function Home() {
   useEffect(()=>{
     Axios.get("http://localhost:3001/upload").then((response)=>{
       setPosts(response.data);
+      console.log(response.data);
     });
   }, []);
 
@@ -34,10 +35,10 @@ function Home() {
    
     Axios.post("http://localhost:3001/upload/like",
     {
-      userLikes: localStorage.getItem("username"),
-      postID: postID
-    }).then((response)=>{
+      loginIDLike: localStorage.getItem("loginID"),
+      postID: postID,
 
+    }).then((response)=>{
       window.location.reload(); // reload page
     });
   }
@@ -73,7 +74,7 @@ function Home() {
             <div className='Content'>
               <div className='title'>
                 {" "}
-                {val.title} / by @{val.userName_user}
+                {val.type} {val.buyCrypto}{val.sellCrypto} {val.buyPrice}{val.sellPrice} / by @{val.userName_user}
               </div>
               <div className='caption'>{val.text}</div>
             </div>
@@ -81,7 +82,7 @@ function Home() {
             {/* Interaction */}
             <div className='Interactions'>
               <ThumbUpAltIcon id="likeButton"
-              onClick={()=>{likePost(val.likeCount, key);}}/>
+              onClick={()=>{likePost(val.postID, key);}}/>
               {val.likeCount}
               <div className='DeleteButton'>
                 <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
