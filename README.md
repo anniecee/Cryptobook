@@ -11,9 +11,9 @@ Transaction
 ## To do
 ### Post-related part:
 - **Home:** 
-- [ ] Fix display of image
+- [ ] Fix like button (minus number of likes + delete from likeEvent table)
 - [ ] Display post type (buy/sell) + price + crypto
-- [ ] Fix like + delete - currently not working after hooking to new database (check back-end with new database)
+- [ ] Fix delete - currently not working after hooking to new database (check back-end with new database)
 - [ ] Update according to database
 - [ ] CSS styling
 
