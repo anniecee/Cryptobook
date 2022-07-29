@@ -16,10 +16,10 @@ router.get("/", (req, res) => {
 // Upload post
 // TBU
 router.post('/', (req, res) =>{
-    const title = req.body.title;
+    const title = req.body.title;   // no need
     const text = req.body.text;
-    const imgId = req.body.imgId;
-    const userId = req.body.userId;
+    const imgId = req.body.imgId;   // Consider taking it out to be easier
+    const userId = req.body.userId; // should be changed to username
     // update other attributes
 
     con.query("INSERT INTO post (userID_post, text, likeCount) VALUES (?, ?, ?);",
@@ -39,26 +39,39 @@ router.post("/like", (req, res)=>{
 
     // Insert like event
     // (Now it inserts username, not userID => need to change)
-    //const userIDquery = con.query("SELECT userID FROM user WHERE loginID = ?", loginIDLike);
-    con.query("INSERT INTO likeevent (postID_likeEvent, likeUserID) VALUES (?, ?);",
-    [postID, loginIDLike],
+    con.query("SELECT userID FROM user WHERE loginID = ?", 
+    [loginIDLike], 
     (err, results)=>{
-        if(err){
+        if(err) {
             console.log(err);
         }
         else {
-            // Update likeCount of post
-            con.query("UPDATE post SET likeCount = likeCount + 1 WHERE postID = ?", 
-            postID,
-            (err2, result2)=>{
-                if(err2){
-                    console.log(err2);
+            // Insert like UserID with loginID
+            const userID = results[0].userID;
+            console.log(results[0].userID);
+
+            con.query("INSERT INTO likeevent (postID_likeEvent, likeUserID) VALUES (?, ?);",
+            [postID, userID],
+            (err, results)=>{
+                if(err){
+                    console.log(err);
                 }
-                res.send(results);
-            });
-            }
+                else {
+                    // Update likeCount of post
+                    con.query("UPDATE post SET likeCount = likeCount + 1 WHERE postID = ?", 
+                    postID,
+                    (err2, result2)=>{
+                        if(err2){
+                            console.log(err2);
+                        }
+                        res.send(results);
+                    });
+                    }
+                }
+            )
         }
-    )
+    });
+
 })
 
 // Delete post

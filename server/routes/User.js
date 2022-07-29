@@ -39,7 +39,9 @@ router.post('/login', (req, res) =>{
             if(password == results[0].password){
                 res.json({
                     loggedIn: true,
-                    loginID: loginID
+                    loginID: loginID,
+                    userID: results[0].userID,
+                    username: results[0].userName_user
                 })
             }else{
                 res.json({
