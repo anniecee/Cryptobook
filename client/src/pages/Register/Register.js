@@ -25,6 +25,8 @@ function Register() {
         }).then((response2) => {
           localStorage.setItem("loggedIn", true);
           localStorage.setItem("loginID", loginID);
+          localStorage.setItem("userID", response.data.userID);
+          localStorage.setItem("username", response.data.username);
 
           navigate('/');
           window.location.reload();

@@ -21,7 +21,9 @@ function Login() {
       if(response.data.loggedIn){
         localStorage.setItem("loggedIn", true);
         localStorage.setItem("loginID", response.data.loginID);
-        
+        localStorage.setItem("userID", response.data.userID);
+        localStorage.setItem("username", response.data.username);
+                
         navigate("/");
         window.location.reload();
       }else{
