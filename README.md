@@ -15,6 +15,7 @@ Transaction
 - [ ] Display post type (buy/sell) + price + crypto
 - [ ] Fix delete - currently not working after hooking to new database (check back-end with new database) (delete on cascade)
 - [ ] Update according to database
+- [ ] Buy & sell button
 - [ ] CSS styling
 
 - **Create post:**
