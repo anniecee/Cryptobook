@@ -7,6 +7,7 @@ import Register from "./pages/Register/Register";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import SearchPost from "./pages/SearchPost/SearchPost";
 import SignOut from "./pages/SignOut/SignOut";
+import Transactions from './pages/Transactions/Transactions';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path='/SearchPost' element={<SearchPost />}>
           </Route>
           <Route path='/signOut' element={<SignOut />}>
+          </Route>
+          <Route path='/Transactions' element={<Transactions />}>
           </Route>
         </Routes>
       </BrowserRouter>

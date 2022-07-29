@@ -21,7 +21,6 @@ function Home() {
   useEffect(()=>{
     Axios.get("http://localhost:3001/upload").then((response)=>{
       setPosts(response.data);
-      console.log(response.data);
     });
   }, []);
 
@@ -38,6 +37,7 @@ function Home() {
       userLikes: localStorage.getItem("username"),
       postID: postID
     }).then((response)=>{
+
       window.location.reload(); // reload page
     });
   }
@@ -60,6 +60,7 @@ function Home() {
        {/* Display post */}
        {posts.map((val, key)=>{
         return(
+
 
           <div className='Post'> 
             {/* Image - NEED TO CHANGE FOR imgId*/}

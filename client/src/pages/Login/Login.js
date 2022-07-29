@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 
 function Login() {
 
-  const [username, setUsername] = useState("");
+  const [loginID, setLoginID] = useState("");
   const [password, setPassword] = useState("");
 
   const [errMsg, setErrMsg] = useState("");
@@ -15,13 +15,15 @@ function Login() {
 
   const login = () => {
     Axios.post("http://localhost:3001/user/login", {
-      username: username,
+        loginID: loginID,
       password: password
     }).then((response) => {
       if(response.data.loggedIn){
         localStorage.setItem("loggedIn", true);
-        localStorage.setItem("username", response.data.username);
+        localStorage.setItem("loginID", response.data.loginID);
+        
         navigate("/");
+        window.location.reload();
       }else{
         setErrMsg(response.data.message);
       }
@@ -32,9 +34,9 @@ function Login() {
     <div className="Login">
       <h1>Login</h1>
         <div className="LoginForm">
-          <input type="text" placeholder='Username' onChange={
+          <input type="text" placeholder='LoginID' onChange={
             (event)=>{
-              setUsername(event.target.value);
+                setLoginID(event.target.value);
             }
           }/>
           <input type="password" placeholder='Password' onChange={
