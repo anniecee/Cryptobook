@@ -38,7 +38,7 @@ router.post("/like", (req, res)=>{
     const postID = req.body.postID;
 
     // Insert like event
-    // (Now it inserts username, not userID => need to change)
+    // (This code can be optimized)
     con.query("SELECT userID FROM user WHERE loginID = ?", 
     [loginIDLike], 
     (err, results)=>{
@@ -55,6 +55,8 @@ router.post("/like", (req, res)=>{
             (err, results)=>{
                 if(err){
                     console.log(err);
+                    // Delete likeevent instance + decrement likeCount of post
+                    // TBU
                 }
                 else {
                     // Update likeCount of post
