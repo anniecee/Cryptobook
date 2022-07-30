@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `accountID` char(40) NOT NULL,
   `balance` decimal(10,0) DEFAULT NULL,
-  `userID_account` INT DEFAULT NULL,
+  `userID_account` INT DEFAULT NULL AUTO_INCREMENT,
   PRIMARY KEY (`accountID`),
   KEY `userID_account_idx` (`userID_account`),
   CONSTRAINT `userID` FOREIGN KEY (`userID_account`) REFERENCES `user` (`userID`)
