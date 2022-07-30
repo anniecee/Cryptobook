@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `businessUser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `businessUser` (
-  `userID_business` char(40) NOT NULL,
+  `userID_business` int NOT NULL AUTO_INCREMENT,
   `totalRevenue` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`userID_business`),
   CONSTRAINT `userID_business` FOREIGN KEY (`userID_business`) REFERENCES `user` (`userID`) ON DELETE CASCADE
@@ -36,7 +36,7 @@ CREATE TABLE `businessUser` (
 
 LOCK TABLES `businessUser` WRITE;
 /*!40000 ALTER TABLE `businessUser` DISABLE KEYS */;
-INSERT INTO `businessUser` VALUES ('a0b12c',438414),('af2jj3k',3459431),('c2xze3k',45693),('g3kgj5',0),('g5khi6',546954);
+INSERT INTO `businessUser` VALUES (123,438414),(321,3459431),(223,45693),(221,0),(145,546954);
 /*!40000 ALTER TABLE `businessUser` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

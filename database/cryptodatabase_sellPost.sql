@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `sellPost`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sellPost` (
   `sell_postID` char(40) NOT NULL,
-  `sell_transactionID` char(40) NOT NULL,
+  `sell_transactionID` INT NOT NULL AUTO_INCREMENT,
   `sellPrice` decimal(10,0) DEFAULT NULL,
   `sellCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`sell_postID`,`sell_transactionID`),

@@ -20,9 +20,9 @@ USE `cryptodatabase` ;
 DROP TABLE IF EXISTS `cryptodatabase`.`account` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`account` (
-  `accountID` CHAR(40) NOT NULL,
+  `accountID` INT NOT NULL,
   `balance` DECIMAL(10) NULL,
-  `userID_account` CHAR(40) NULL,
+  `userID_account` INT NULL,
   PRIMARY KEY (`accountID`),
   INDEX `userID_account_idx` (`userID_account` ASC),
   CONSTRAINT `userID`
@@ -39,8 +39,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`addBanking` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`addBanking` (
-  `cardID_addBanking` CHAR(40) NOT NULL,
-  `userID_addBanking` CHAR(40) NOT NULL,
+  `cardID_addBanking` INT NOT NULL,
+  `userID_addBanking` INT NOT NULL,
   PRIMARY KEY (`cardID_addBanking`, `userID_addBanking`),
   INDEX `userID_addBanking_idx` (`userID_addBanking` ASC),
   CONSTRAINT `cardID_addBanking`
@@ -62,7 +62,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`bankingInfo` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`bankingInfo` (
-  `cardID_bankinginfo` CHAR(40) NOT NULL,
+  `cardID_bankinginfo` INT NOT NULL,
   `cardNumber_bankinginfo` INT NULL,
   `nameOnCard` CHAR(40) NULL,
   PRIMARY KEY (`cardID_bankinginfo`))
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`businessUser` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`businessUser` (
-  `userID_business` CHAR(40) NOT NULL,
+  `userID_business` INT NOT NULL,
   `totalRevenue` DECIMAL(10) NULL,
   PRIMARY KEY (`userID_business`),
   CONSTRAINT `userID_business`
@@ -92,8 +92,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`buyPost` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`buyPost` (
-  `buypostID` CHAR(40) NOT NULL,
-  `transactionID_buy` CHAR(40) NOT NULL,
+  `buypostID` INT NOT NULL,
+  `transactionID_buy` INT NOT NULL,
   `buyPrice` DECIMAL(10) NULL,
   `buyCrypto` CHAR(10) NULL,
   PRIMARY KEY (`buypostID`, `transactionID_buy`),
@@ -117,8 +117,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`credentials` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`credentials` (
-  `loginID_credential` CHAR(40) NOT NULL,
-  `userID_credential` CHAR(40) NULL,
+  `loginID_credential` INT NOT NULL,
+  `userID_credential` INT NULL,
   `password_credential` CHAR(40) NULL,
   PRIMARY KEY (`loginID_credential`),
   INDEX `userID_credential_idx` (`userID_credential` ASC),
@@ -136,9 +136,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`follows` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`follows` (
-  `userID_follows` CHAR(40) NULL,
-  `followed_userID` CHAR(40) NOT NULL,
-  `following_userID` CHAR(40) NOT NULL,
+  `userID_follows` INT NULL,
+  `followed_userID` INT NOT NULL,
+  `following_userID` INT NOT NULL,
   PRIMARY KEY (`followed_userID`, `following_userID`),
   INDEX `followed_userID_idx` (`followed_userID` ASC) ,
   CONSTRAINT `following_userID`
@@ -160,8 +160,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`influencerUser` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`influencerUser` (
-  `influencerID` CHAR(40) NOT NULL,
-  `mostEngagedPostID` CHAR(40) NULL,
+  `influencerID` INT NOT NULL,
+  `mostEngagedPostID` INT NULL,
   PRIMARY KEY (`influencerID`),
   INDEX `mostEngagedPostID_idx` (`mostEngagedPostID` ASC) ,
   CONSTRAINT `influencerID`
@@ -183,8 +183,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`likeEvent` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`likeEvent` (
-  `postID_likeEvent` CHAR(40) NOT NULL,
-  `likeUserID` CHAR(40) NULL,
+  `postID_likeEvent` INT NOT NULL,
+  `likeUserID` INT NULL,
   PRIMARY KEY (`postID_likeEvent`),
   INDEX `likeUserID_idx` (`likeUserID` ASC) ,
   CONSTRAINT `postID_likeEvent`
@@ -207,7 +207,7 @@ DROP TABLE IF EXISTS `cryptodatabase`.`personalProfile` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`personalProfile` (
   `userName` CHAR(40) NOT NULL,
-  `profileID` CHAR(40) NULL,
+  `profileID` INT NULL,
   `gender` CHAR(10) NULL,
   `DOB` DATETIME NULL,
   PRIMARY KEY (`userName`),
@@ -226,8 +226,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`post` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`post` (
-  `postID` CHAR(40) NOT NULL,
-  `userID_post` CHAR(40) NULL,
+  `postID` INT NOT NULL,
+  `userID_post` INT NULL,
   `text` CHAR(200) NULL,
   `likeCount` INT NULL,
   PRIMARY KEY (`postID`),
@@ -247,13 +247,13 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`transaction` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`transaction` (
-  `transactionID` CHAR(40) NOT NULL,
+  `transactionID` INT NOT NULL,
   `crypto` CHAR(20) NULL,
   `price` DECIMAL(10) NULL,
   `type` CHAR(10) NULL,
   `time` DATETIME NULL,
-  `postID_transaction` CHAR(40) NULL,
-  `accountID_transaction` CHAR(40) NULL,
+  `postID_transaction` INT NULL,
+  `accountID_transaction` INT NULL,
   PRIMARY KEY (`transactionID`),
   INDEX `transactionID_idx` (`transactionID` ASC),
   INDEX `postID_transaction_idx` (`postID_transaction` ASC),
@@ -275,8 +275,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`sellPost` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`sellPost` (
-  `sell_postID` CHAR(40) NOT NULL,
-  `sell_transactionID` CHAR(40) NOT NULL,
+  `sell_postID` INT NOT NULL,
+  `sell_transactionID` INT NOT NULL,
   `sellPrice` DECIMAL(10) NULL,
   `sellCrypto` CHAR(10) NULL,
   PRIMARY KEY (`sell_postID`, `sell_transactionID`),
@@ -299,9 +299,9 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`transactionStoredInAccount` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`transactionStoredInAccount` (
-  `transactionID_stored` CHAR(40) NOT NULL,
-  `fromAccountID` CHAR(40) NULL,
-  `toAccountID` CHAR(40) NULL,
+  `transactionID_stored` INT NOT NULL,
+  `fromAccountID` INT NULL,
+  `toAccountID` INT NULL,
   PRIMARY KEY (`transactionID_stored`),
   INDEX `toAccountID_idx` (`toAccountID` ASC) ,
   INDEX `fromAccountID_idx` (`fromAccountID` ASC),
@@ -329,12 +329,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`user` (
-  `userID` CHAR(40) NOT NULL,
+  `userID` INT NOT NULL AUTO_INCREMENT,
   `name` CHAR(40) NULL,
   `email` CHAR(40) NULL,
   `followingCount` INT NULL,
   `followerCount` INT NULL,
-  `loginID` CHAR(10) NULL,
+  `loginID` INT NULL,
   `password` CHAR(40) NULL,
   `userName_user` CHAR(40) NULL,
   PRIMARY KEY (`userID`),

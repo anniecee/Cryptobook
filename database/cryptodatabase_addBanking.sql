@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `addBanking`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `addBanking` (
   `cardID_addBanking` char(40) NOT NULL,
-  `userID_addBanking` char(40) NOT NULL,
+  `userID_addBanking` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`cardID_addBanking`,`userID_addBanking`),
   KEY `userID_addBanking_idx` (`userID_addBanking`),
   CONSTRAINT `cardID_addBanking` FOREIGN KEY (`cardID_addBanking`) REFERENCES `bankingInfo` (`cardID_bankinginfo`),
@@ -38,7 +38,7 @@ CREATE TABLE `addBanking` (
 
 LOCK TABLES `addBanking` WRITE;
 /*!40000 ALTER TABLE `addBanking` DISABLE KEYS */;
-INSERT INTO `addBanking` VALUES ('1736496038','a0b12c'),('1827261837','af2jj3k'),('4859385015','c2xze3k'),('3382211834','g3kgj5'),('1746639600','g5khi6');
+INSERT INTO `addBanking` VALUES ('1736496038',123),('1827261837',223),('4859385015',321),('3382211834',145),('1746639600',221);
 /*!40000 ALTER TABLE `addBanking` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

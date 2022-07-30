@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction` (
-  `transactionID` char(40) NOT NULL,
+  `transactionID` INT NOT NULL AUTO_INCREMENT,
   `crypto` char(20) DEFAULT NULL,
   `price` decimal(10,0) DEFAULT NULL,
   `type` char(10) DEFAULT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES ('23992fkja','BNB',215,'Buy','2020-01-01 01:20:59','5492929','dglf4kfls4kl!@4l'),('2j30fsk4a','Bitcoin',20496,'Sell','2019-05-11 21:59:59','3958603','11114o%mfgfg@557'),('329fsdk42','Solana',103,'Sell','2020-11-12 20:29:49',NULL,'5969604869363n46'),('3i4dks302','Tether',1,'Buy','2018-05-12 07:09:00','3940502','ab35k6l!3l@4k3lf'),('4932k3lg2','Ethereum',1065,'Sell','2019-01-02 00:00:00','3939502','akfl35063!mbgks#');
+INSERT INTO `transaction` VALUES (23992,'BNB',215,'Buy','2020-01-01 01:20:59','5492929','dglf4kfls4kl!@4l'),(49323,'Bitcoin',20496,'Sell','2019-05-11 21:59:59','3958603','11114o%mfgfg@557'),(34123,'Solana',103,'Sell','2020-11-12 20:29:49',NULL,'5969604869363n46'),(23124,'Tether',1,'Buy','2018-05-12 07:09:00','3940502','ab35k6l!3l@4k3lf'),(32945,'Ethereum',1065,'Sell','2019-01-02 00:00:00','3939502','akfl35063!mbgks#');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
