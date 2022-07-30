@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `post`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `post` (
   `postID` char(40) NOT NULL,
-  `userID_post` char(40) DEFAULT NULL AUTO_INCREMENT,
+  `userID_post` INT DEFAULT NULL AUTO_INCREMENT,
   `text` char(200) DEFAULT NULL,
   `likeCount` int DEFAULT NULL,
   PRIMARY KEY (`postID`),

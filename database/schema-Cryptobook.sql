@@ -101,13 +101,8 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`buyPost` (
   CONSTRAINT `buypostID`
     FOREIGN KEY (`buypostID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `transactionID_buy`
-    FOREIGN KEY (`transactionID_buy`)
-    REFERENCES `cryptodatabase`.`transaction` (`transactionID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -173,7 +168,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`influencerUser` (
     FOREIGN KEY (`mostEngagedPostID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -190,13 +185,13 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`likeEvent` (
   CONSTRAINT `postID_likeEvent`
     FOREIGN KEY (`postID_likeEvent`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `likeUserID`
     FOREIGN KEY (`likeUserID`)
     REFERENCES `cryptodatabase`.`user` (`userID`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -230,6 +225,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`post` (
   `userID_post` INT NULL,
   `text` CHAR(200) NULL,
   `likeCount` INT NULL,
+  `type` CHAR(40) NULL,
   PRIMARY KEY (`postID`),
   INDEX `userID_post_idx` (`userID_post` ASC),
   CONSTRAINT `userID_post`
@@ -261,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`transaction` (
     FOREIGN KEY (`postID_transaction`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
+    ON UPDATE CASCADE,
   CONSTRAINT `accountID_transaction`
     FOREIGN KEY (`accountID_transaction`)
     REFERENCES `cryptodatabase`.`account` (`accountID`)
@@ -284,13 +280,8 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`sellPost` (
   CONSTRAINT `sell_postID`
     FOREIGN KEY (`sell_postID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `sell_transactionID`
-    FOREIGN KEY (`sell_transactionID`)
-    REFERENCES `cryptodatabase`.`transaction` (`transactionID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -343,13 +334,13 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`user` (
   CONSTRAINT `userName_user`
     FOREIGN KEY (`userName_user`)
     REFERENCES `cryptodatabase`.`personalProfile` (`userName`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `loginID`
     FOREIGN KEY (`loginID`)
     REFERENCES `cryptodatabase`.`credentials` (`loginID_credential`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

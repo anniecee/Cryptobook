@@ -67,28 +67,38 @@ function SearchPost() {
     // Like function 
     // Update according to Home.js in client
     // (Need to change multiple likes)
-    const likePost = (postId, key)=>{
-    
+    const likePost = (postID, key)=>{
+   
       Axios.post("http://localhost:3001/upload/like",
       {
-        userLikes: localStorage.getItem("username"),
-        postId: postId
+        loginIDLike: localStorage.getItem("loginID"),
+        postID: postID,
+  
       }).then((response)=>{
         window.location.reload(); // reload page
       });
     }
+  
 
     // Add delete function
     // Update according to Home.js in client
-    const deletePost = (postId, key)=>{
-      console.log(postId);   
+    const deletePost = (postID, key)=>{
+      console.log(postID);   
       Axios.delete("http://localhost:3001/upload/delete/",
       {data: {
-        postId: postId
+        postID: postID
       }}).then((response)=>{
         window.location.reload(); // reload page
       });
     }
+
+  // Implement buy and sell action
+  // TBU - (Create transaction in transaction table)
+  const buyAction = (postID, key)=>{
+  }
+
+  const sellAction = (postID, key)=>{
+  }
 
   // Return front end
   return (
@@ -118,30 +128,64 @@ function SearchPost() {
         </div>
 
         {/* Min/max post input */}
-        <div className="MostLikedPost">
+        <div className="SearchPost">
           <h1>Show post with most like counts: </h1>
           <button onClick={maxLike}>Show</button>
         </div>
         
+        <div className="SearchPost">
+          <h1>SEARCH RESULTS: </h1>
+        </div>
         {/* Display post */}
         {posts.map((val, key)=>{
         return(
-          <div className='Post'>     
-          <h1>Search Results: </h1>     
+          <div className='Post'> 
+
+            {/* Content */}
             <div className='Content'>
-              <div className='title'>
-                {" "}
-                {val.title} / by @{val.userID_post}
-              </div>
-              <div className='caption'>{val.text}</div>
+              {/* Title */}
+              {val.type == "normal" ? (
+                    <div className="Title">
+                      Text Post by @{val.userID_post}
+                    </div>
+                ) : (
+                    <div className="Title">
+                      {val.type} {val.buyCrypto}{val.sellCrypto} at ${val.buyPrice}{val.sellPrice} / by @{val.userID_post}
+                    </div>
+                )}
+              {/* Text */}
+              <div className='Text'>{val.text}</div>
             </div>
+
+            {/* Interaction */}
             <div className='Interactions'>
-              <ThumbUpAltIcon id="likeButton"/>
+              {/* Like */}
+              <ThumbUpAltIcon id="likeButton"
+              onClick={()=>{likePost(val.postID, key);}}/>
               {val.likeCount}
+              {/* Buy/Sell button */}
+              {val.type == "buy" ? (
+                    <div className='sellButton'>
+                      <button onClick={()=>{sellAction(val.postID);}}>Sell!</button>
+                    </div>
+                  ) : (
+                    val.type == "sell" ? (
+                      <div className='buyButton'>
+                        <button onClick={()=>{buyAction(val.postID);}}>Buy!</button>
+                      </div>
+                    ) : (
+                      <></>
+                  ))}
+              {/* Delete button */}
+              <div className='DeleteButton'>
+                <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
+              </div>
             </div>
+
           </div>
           )
         })}
+        {/* End - Display post */}
         {/* End - Display post */}
 
     </div>

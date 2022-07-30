@@ -36,8 +36,8 @@ router.post('/register', (req, res) =>{
     })
     )
 
-    con.query("INSERT INTO user (userID, loginID, password) VALUES (?, ?, ?);",
-    [loginID, loginID, password],
+    con.query("INSERT INTO user (loginID, password) VALUES (?, ?);",
+    [loginID, password],
     (err, results) => {
         res.send(results);
     });
