@@ -4,7 +4,7 @@ const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "cmpt354",
-    port: 3312,
+    port: process.env.DB_PORT || 3312,
     database: "cryptodatabase"
 });
 
