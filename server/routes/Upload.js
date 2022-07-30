@@ -16,18 +16,35 @@ router.get("/", (req, res) => {
 // Upload post
 // TBU
 router.post('/', (req, res) =>{
-    const title = req.body.title;   // no need
     const text = req.body.text;
-    const imgId = req.body.imgId;   // Consider taking it out to be easier
-    const userId = req.body.userId; // should be changed to username
-    // update other attributes
+    const type = req.body.type;
+    const userID = req.body.userId;
+    console.log(type);
 
-    con.query("INSERT INTO post (userID_post, text, likeCount) VALUES (?, ?, ?);",
-    [userId, text, 0],
-    (err, results) => {
-        //console.log(err);
-        res.send(results);
+    // Update post table
+    con.query("INSERT INTO post (userID_post, text, likeCount, type) VALUES (?, ?, ?, ?);",
+    [userID, text, 0, type]
+    ,(err, results) => {
+        if(err){
+            console.log(err);
+        }
+        else {
+            res.send(results);
+
+            // // Update table sellpost
+            // const sell_postID = results[0].;
+
+            // if (type == "sell") {
+            //     con.query("INSERT INTO sellpost (sell_postID, sell_transactionID, sellPrice, sellCrypto) VALUES (?, ?, ?, ?);",
+            //     [userID, text, 0, type]
+            //     ,(err, results) => {
+            //         if(err){
+            //             console.log(err);
+            //         }
+            // }
+        }
     });
+
 });
 
 // Insert like event + update like count
