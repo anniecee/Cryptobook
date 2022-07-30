@@ -6,6 +6,8 @@ function SignOut() {
 
   localStorage.setItem("loggedIn", false);
   localStorage.removeItem("username");
+  localStorage.removeItem("userID");
+  localStorage.removeItem("loginID");
 
   var navigate = useNavigate();
 
