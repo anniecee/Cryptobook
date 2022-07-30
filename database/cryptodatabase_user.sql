@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `userID` char(40) NOT NULL,
+  `userID` INT NOT NULL AUTO_INCREMENT,
   `name` char(40) DEFAULT NULL,
   `email` char(40) DEFAULT NULL,
   `followingCount` int DEFAULT NULL,
   `followerCount` int DEFAULT NULL,
-  `loginID` char(10) DEFAULT NULL,
+  `loginID` char(40) DEFAULT NULL,
   `password` char(40) DEFAULT NULL,
   `userName_user` char(40) DEFAULT NULL,
   PRIMARY KEY (`userID`),
@@ -45,7 +45,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('a0b12c','Annie','anniecUtiePie12@hotmail.com',1000,500,'peannie1','annIeCungsuperKuTe@sfu','anniecungabc11'),('af2jj3k','Helen','\nhelenp12@gmail.com\n\nhelenph12@gmail.com',50,100,'helensfu11','front-door-row','superman12'),('c2xze3k','Sam','samuel12@gmail.com',800,10,'sampiu2','samUeL#11','s@muel11'),('g3kgj5','Michael','miew3@gmail.com',0,0,'gmng','dlsjg2@4$!','maicheo23'),('g5khi6','Nathan','na12@gmail.com',4000,10,'nth@43','welcome-to-home','nnnnp21');
+INSERT INTO `user` VALUES (123,'Annie','anniecUtiePie12@hotmail.com',1000,500,'peannie1','annIeCungsuperKuTe@sfu','anniecungabc11'),(223,'Helen','\nhelenp12@gmail.com\n\nhelenph12@gmail.com',50,100,'helensfu11','front-door-row','superman12'),(321,'Sam','samuel12@gmail.com',800,10,'sampiu2','samUeL#11','s@muel11'),(145,'Michael','miew3@gmail.com',0,0,'gmng','dlsjg2@4$!','maicheo23'),(221,'Nathan','na12@gmail.com',4000,10,'nth@43','welcome-to-home','nnnnp21');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

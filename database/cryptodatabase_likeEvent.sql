@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `likeEvent`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `likeEvent` (
   `postID_likeEvent` char(40) NOT NULL,
-  `likeUserID` char(40) DEFAULT NULL,
+  `likeUserID` INT DEFAULT NULL AUTO_INCREMENT,
   PRIMARY KEY (`postID_likeEvent`),
   KEY `likeUserID_idx` (`likeUserID`),
   CONSTRAINT `likeUserID` FOREIGN KEY (`likeUserID`) REFERENCES `user` (`userID`) ON DELETE CASCADE,

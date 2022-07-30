@@ -11,19 +11,20 @@ Transaction
 ## To do
 ### Post-related part:
 - **Home:** 
-- [ ] Fix display of image
-- [ ] Display post type (buy/sell) + price + crypto
-- [ ] Fix like + delete - currently not working after hooking to new database (check back-end with new database)
-- [ ] Update according to database
-- [ ] CSS styling
+- [ ] Fix like button (minus number of likes + delete from likeEvent table)
+- [x] Display post type (buy/sell) + price + crypto
+- [x] Fix delete - currently not working after hooking to new database (check back-end with new database) (delete on cascade)
+- [x] Update according to database
+- [ ] Buy & sell button (extra feature)
+- [x] CSS styling
 
 - **Create post:**
 - [ ] Check back-end to update with new database
 
 - **Search Post:**
 - [ ] Create a drop-down menu to show only 1 search option at once
-- [ ] Update display of post result after fixing post display in Home page
-- [ ] CSS Styling
+- [x] Update display of post result after fixing post display in Home page
+- [x] CSS Styling
 
 ## Getting started:
 - Set up client:

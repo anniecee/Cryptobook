@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `personalProfile`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personalProfile` (
   `userName` char(40) NOT NULL,
-  `profileID` char(40) DEFAULT NULL,
+  `profileID` INT DEFAULT NULL AUTO_INCREMENT,
   `gender` char(10) DEFAULT NULL,
   `DOB` datetime DEFAULT NULL,
   PRIMARY KEY (`userName`),
@@ -39,7 +39,7 @@ CREATE TABLE `personalProfile` (
 
 LOCK TABLES `personalProfile` WRITE;
 /*!40000 ALTER TABLE `personalProfile` DISABLE KEYS */;
-INSERT INTO `personalProfile` VALUES ('anniecungabc11','a0b12c','Female','1998-01-01 00:00:00'),('maicheo23','g3kgj5','Male','1996-04-12 00:00:00'),('nnnnp21','g5khi6','Male','1999-07-06 00:00:00'),('s@muel11','c2xze3k','Male','2001-02-02 00:00:00'),('superman12','af2jj3k','Female','2003-02-03 00:00:00');
+INSERT INTO `personalProfile` VALUES ('anniecungabc11',123,'Female','1998-01-01 00:00:00'),('maicheo23',321,'Male','1996-04-12 00:00:00'),('nnnnp21',223,'Male','1999-07-06 00:00:00'),('s@muel11',221,'Male','2001-02-02 00:00:00'),('superman12',145,'Female','2003-02-03 00:00:00');
 /*!40000 ALTER TABLE `personalProfile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

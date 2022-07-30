@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `influencerUser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `influencerUser` (
-  `influencerID` char(40) NOT NULL,
+  `influencerID` INT NOT NULL AUTO_INCREMENT,
   `mostEngagedPostID` char(40) DEFAULT NULL,
   PRIMARY KEY (`influencerID`),
   KEY `mostEngagedPostID_idx` (`mostEngagedPostID`),
@@ -38,7 +38,7 @@ CREATE TABLE `influencerUser` (
 
 LOCK TABLES `influencerUser` WRITE;
 /*!40000 ALTER TABLE `influencerUser` DISABLE KEYS */;
-INSERT INTO `influencerUser` VALUES ('af2jj3k','439fkd432gfk3'),('g3kgj5','aslw325j54l3'),('c2xze3k','ds345j6l2m23l'),('a0b12c','gkfj495030fk2'),('g5khi6','welkf32lkf245');
+INSERT INTO `influencerUser` VALUES (123,'439fkd432gfk3'),(321,'aslw325j54l3'),(223,'ds345j6l2m23l'),(221,'gkfj495030fk2'),(145,'welkf32lkf245');
 /*!40000 ALTER TABLE `influencerUser` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `buyPost`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `buyPost` (
   `buypostID` char(40) NOT NULL,
-  `transactionID_buy` char(40) NOT NULL,
+  `transactionID_buy` INT NOT NULL AUTO_INCREMENT,
   `buyPrice` decimal(10,0) DEFAULT NULL,
   `buyCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`buypostID`,`transactionID_buy`),
@@ -40,7 +40,7 @@ CREATE TABLE `buyPost` (
 
 LOCK TABLES `buyPost` WRITE;
 /*!40000 ALTER TABLE `buyPost` DISABLE KEYS */;
-INSERT INTO `buyPost` VALUES ('3939502','4932k3lg2',1025,'Ethereum'),('3940502','3i4dks302',1024,'Ethereum'),('3958603','2j30fsk4a',218,'BNB'),('4959241','329fsdk42',32,'Solana'),('5492929','23992fkja',215,'BNB');
+INSERT INTO `buyPost` VALUES ('3939502',23992,1025,'Ethereum'),('3940502',49323,1024,'Ethereum'),('3958603',34123,218,'BNB'),('4959241',23124,32,'Solana'),('5492929',32945,215,'BNB');
 /*!40000 ALTER TABLE `buyPost` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

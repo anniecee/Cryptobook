@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `accountID` char(40) NOT NULL,
   `balance` decimal(10,0) DEFAULT NULL,
-  `userID_account` char(40) DEFAULT NULL,
+  `userID_account` INT DEFAULT NULL AUTO_INCREMENT,
   PRIMARY KEY (`accountID`),
   KEY `userID_account_idx` (`userID_account`),
   CONSTRAINT `userID` FOREIGN KEY (`userID_account`) REFERENCES `user` (`userID`)
@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
-INSERT INTO `account` VALUES ('11114o%mfgfg@557',235,'g5khi6'),('5969604869363n46',0,'g3kgj5'),('ab35k6l!3l@4k3lf',4864,'af2jj3k'),('akfl35063!mbgks#',498,'c2xze3k'),('dglf4kfls4kl!@4l',1206,'a0b12c');
+INSERT INTO `account` VALUES ('11114o%mfgfg@557',235,221),('5969604869363n46',0,145),('ab35k6l!3l@4k3lf',4864,223),('akfl35063!mbgks#',498,321),('dglf4kfls4kl!@4l',1206,123);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

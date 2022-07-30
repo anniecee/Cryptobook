@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `transactionStoredInAccount`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transactionStoredInAccount` (
-  `transactionID_stored` char(40) NOT NULL,
+  `transactionID_stored` INT NOT NULL AUTO_INCREMENT,
   `fromAccountID` char(40) DEFAULT NULL,
   `toAccountID` char(40) DEFAULT NULL,
   PRIMARY KEY (`transactionID_stored`),
@@ -41,7 +41,7 @@ CREATE TABLE `transactionStoredInAccount` (
 
 LOCK TABLES `transactionStoredInAccount` WRITE;
 /*!40000 ALTER TABLE `transactionStoredInAccount` DISABLE KEYS */;
-INSERT INTO `transactionStoredInAccount` VALUES ('23992fkja','dglf4kfls4kl!@4l','ab35k6l!3l@4k3lf'),('2j30fsk4a','11114o%mfgfg@557','5969604869363n46'),('329fsdk42','5969604869363n46','akfl35063!mbgks#'),('3i4dks302','ab35k6l!3l@4k3lf','ab35k6l!3l@4k3lf'),('4932k3lg2','akfl35063!mbgks#','dglf4kfls4kl!@4l');
+INSERT INTO `transactionStoredInAccount` VALUES (23992,'dglf4kfls4kl!@4l','ab35k6l!3l@4k3lf'),(49323,'11114o%mfgfg@557','5969604869363n46'),(34123,'5969604869363n46','akfl35063!mbgks#'),(23124,'ab35k6l!3l@4k3lf','ab35k6l!3l@4k3lf'),(32945,'akfl35063!mbgks#','dglf4kfls4kl!@4l');
 /*!40000 ALTER TABLE `transactionStoredInAccount` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

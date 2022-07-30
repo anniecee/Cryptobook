@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `credentials`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `credentials` (
   `loginID_credential` char(40) NOT NULL,
-  `userID_credential` char(40) DEFAULT NULL,
+  `userID_credential` INT DEFAULT NULL AUTO_INCREMENT,
   `password_credential` char(40) DEFAULT NULL,
   PRIMARY KEY (`loginID_credential`),
   /*KEY `userID_credential_idx` (`userID_credential`),*/
@@ -38,7 +38,7 @@ CREATE TABLE `credentials` (
 
 LOCK TABLES `credentials` WRITE;
 /*!40000 ALTER TABLE `credentials` DISABLE KEYS */;
-INSERT INTO `credentials` VALUES ('gmng','g3kgj5','daksl2@4$!hmg'),('helensfu11','af2jj3k','frdft-rofdw-12'),('nth@43','g5khi6','wvfdklv324kl1!!4'),('peannie1','a0b12c','amvlekc3@gjs!'),('sampiu2','c2xze3k','sbk53kf1#11\nbk53kf1#11\nsbk53kf1#11');
+INSERT INTO `credentials` VALUES ('gmng',145,'daksl2@4$!hmg'),('helensfu11',223,'frdft-rofdw-12'),('nth@43',221,'wvfdklv324kl1!!4'),('peannie1',123,'amvlekc3@gjs!'),('sampiu2',321,'sbk53kf1#11\nbk53kf1#11\nsbk53kf1#11');
 /*!40000 ALTER TABLE `credentials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
