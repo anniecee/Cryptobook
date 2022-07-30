@@ -8,7 +8,6 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 function Home() {
 
   const [posts, setPosts] = useState([]);
-  const [postType, setPostType] = useState({});
 
   // Check login state
   useEffect(() => {
@@ -24,9 +23,6 @@ function Home() {
       console.log(response.data);
     });
   }, []);
-
-  // Set post types (buy/sell + price + crypto)
-  // TBU
 
   // Like function 
   // TBU
@@ -44,7 +40,6 @@ function Home() {
   }
 
   // Add delete function
-  // TBU
   const deletePost = (postID, key)=>{
     console.log(postID);   
     Axios.delete("http://localhost:3001/upload/delete/",
@@ -55,35 +50,58 @@ function Home() {
     });
   }
 
+  // Implement buy and sell action
+  // TBU - (Create transaction in transaction table)
+  const buyAction = (postID, key)=>{
+  }
+
+  const sellAction = (postID, key)=>{
+  }
+
   // Return front end
   return (
     <div className="Home">
        {/* Display post */}
        {posts.map((val, key)=>{
         return(
-
-
           <div className='Post'> 
-            {/* Image - NEED TO CHANGE FOR imgId*/}
-            <div className='Image'>
-              <Image cloudName="djmmryhbz" 
-                publicId={val.imgId} />
-            </div>
 
             {/* Content */}
             <div className='Content'>
-              <div className='title'>
-                {" "}
-                {val.type} {val.buyCrypto}{val.sellCrypto} {val.buyPrice}{val.sellPrice} / by @{val.userName_user}
-              </div>
-              <div className='caption'>{val.text}</div>
+              {/* Title */}
+              {val.type == "normal" ? (
+                    <div className="Title">
+                      Text Post by @{val.userName_user}
+                    </div>
+                ) : (
+                    <div className="Title">
+                      {val.type} {val.buyCrypto}{val.sellCrypto} at ${val.buyPrice}{val.sellPrice} / by @{val.userName_user}
+                    </div>
+                )}
+              {/* Text */}
+              <div className='Text'>{val.text}</div>
             </div>
 
             {/* Interaction */}
             <div className='Interactions'>
+              {/* Like */}
               <ThumbUpAltIcon id="likeButton"
               onClick={()=>{likePost(val.postID, key);}}/>
               {val.likeCount}
+              {/* Buy/Sell button */}
+              {val.type == "buy" ? (
+                    <div className='sellButton'>
+                      <button onClick={()=>{sellAction(val.postID);}}>Sell!</button>
+                    </div>
+                  ) : (
+                    val.type == "sell" ? (
+                      <div className='buyButton'>
+                        <button onClick={()=>{buyAction(val.postID);}}>Buy!</button>
+                      </div>
+                    ) : (
+                      <></>
+                  ))}
+              {/* Delete button */}
               <div className='DeleteButton'>
                 <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
               </div>

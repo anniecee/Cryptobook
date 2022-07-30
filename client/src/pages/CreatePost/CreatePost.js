@@ -4,9 +4,7 @@ import "./CreatePost.css"
 import {useNavigate} from 'react-router-dom';
 
 function CreatePost() {
-    const [title, setTitle] = useState("");
-    const [caption, setCaption] = useState("");
-    const [img, setImg] = useState([]);
+    const [text, setText] = useState("");
     const [price, setPrice] = useState(0); 
     const [crypto, setCrypto] = useState("");  
     const [type, setType] = useState("");  
@@ -14,39 +12,25 @@ function CreatePost() {
     let navigate = useNavigate();
     
     const upload = () => {
-        const formData = new FormData();
-        formData.append("file", img[0]);
-        formData.append("upload_preset", "z0ri6wkr");
-        Axios.post(
-            "https://api.cloudinary.com/v1_1/djmmryhbz/image/upload",
-             formData).then((response)=>{
-                const imgId = response.data.public_id;
-
-                Axios.post("http://localhost:3001/upload", {
-                    title: title,
-                    caption: caption,
-                    imgId: imgId,
-                    type: type,
-                    crypto: crypto,
-                    price: price,
-                    userId: localStorage.getItem("username")
-                }).then(()=>{
-                    navigate('../');
-                });
-             });
-    };
+      const formData = new FormData();
+        Axios.post("http://localhost:3001/upload", {
+            text: text,
+            type: type,
+            crypto: crypto,
+            price: price,
+            userID: localStorage.getItem("userID")
+        }).then(()=>{
+            navigate('../');
+        });
+      };
 
   return (
     <div className="CreatePost">
       <h1>Create a Post</h1>
         <div className="RegisterForm">
-          <input type="text" placeholder='Title' 
+          <input type="text" placeholder='Text' 
           onChange={(event)=>{
-            setTitle(event.target.value)
-          }}/>
-          <input type="text" placeholder='Caption' 
-          onChange={(event)=>{
-            setCaption(event.target.value)
+            setText(event.target.value)
           }}/>
           <select className="PostTypeSelection"
             onChange={(event)=>{
@@ -58,22 +42,18 @@ function CreatePost() {
             <option value="sell">Sell post</option>
           </select>
           <input
-            type="text" placeholder="Crypto"
+            type="text" placeholder="Crypto (if buy/sell post)"
             onChange={(event)=>{
               setCrypto(event.target.value)
             }}
           />
           <input 
             type="number" 
-            placeholder ="Set price" 
+            placeholder ="Set price (if buy/sell post)" 
             onChange={(event)=>{
               setPrice(event.target.value)
             }}
           />
-          <input type="file" 
-          onChange={(event)=>{
-            setImg(event.target.files)
-          }}/>
           <button onClick={upload}>Post!</button>
         </div>
     </div>
