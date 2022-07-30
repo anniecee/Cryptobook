@@ -8,7 +8,6 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 function Home() {
 
   const [posts, setPosts] = useState([]);
-  const [postType, setPostType] = useState({});
 
   // Check login state
   useEffect(() => {

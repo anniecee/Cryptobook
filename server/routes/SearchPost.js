@@ -50,8 +50,9 @@ router.get("/byCrypto", (req, res) => {
 
     console.log(crypto);
 
-    con.query("SELECT * FROM post JOIN transaction ON postID = postID_transaction WHERE crypto = ?"
-        , [crypto], (err, results)=>{
+    //con.query("SELECT * FROM post JOIN transaction ON postID = postID_transaction WHERE crypto = ?"
+    con.query("SELECT * FROM post LEFT JOIN sellpost ON postID = sell_postID LEFT JOIN buypost ON postID = buypostID  WHERE sellCrypto = ? OR buyCrypto = ?"
+        , [crypto, crypto], (err, results)=>{
             if(err){
                 console.log(err);
             }
