@@ -23,8 +23,8 @@ Transaction
 
 - **Search Post:**
 - [ ] Create a drop-down menu to show only 1 search option at once
-- [ ] Update display of post result after fixing post display in Home page
-- [ ] CSS Styling
+- [x] Update display of post result after fixing post display in Home page
+- [x] CSS Styling
 
 ## Getting started:
 - Set up client:
