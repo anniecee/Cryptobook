@@ -46,18 +46,27 @@ router.post('/register', (req, res) =>{
     const loginID = req.body.loginID;
     const password = req.body.password;
 
-    con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
-    [loginID, loginID, password],
-    ((err, results)=>{
-        console.log(err)
-    })
-    )
-
     con.query("INSERT INTO user (loginID, password) VALUES (?, ?);",
     [loginID, password],
     (err, results) => {
         res.send(results);
+
+        con.query("SELECT userID FROM user WHERE loginID = ?",
+        [loginID],
+        ((err2, results2)=>{
+            const userID = results2[0].userID;
+            con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
+            [userID, loginID, password],
+            ((err, results)=>{
+                console.log(err)
+            })
+            )
+        }))
     });
+
+
+
+    
 });
 
 router.post('/login', (req, res) =>{
