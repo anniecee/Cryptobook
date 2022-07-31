@@ -12,9 +12,9 @@ function Settings() {
         <li>
           <a href="/personalProfile">My Personal Profile</a>
         </li>
-
+        
         <li>
-          <a href="/changeID">Change My ID</a>
+          <a href="/changeUsername">Change My Username</a>
         </li>
 
         <li>

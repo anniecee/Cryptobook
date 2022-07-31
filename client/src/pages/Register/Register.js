@@ -7,7 +7,6 @@ function Register() {
 
   const [loginID, setLoginID] = useState("");
   const [password, setPassword] = useState("");
-
   const [errMsg, setErrMsg] = useState("");
 
   let navigate = useNavigate();
@@ -34,9 +33,7 @@ function Register() {
       } else if (response.data.loggedIn === true || response.data.message === "Wrong password"){
         setErrMsg("User Already exists.");
       }
-    });
-
-    
+    });    
   };
 
   return (
@@ -48,6 +45,11 @@ function Register() {
               setLoginID(event.target.value);
             }
           }/>
+          {/* <input type="text" placeholder='Username' onChange={
+            (event)=>{
+              setUsername(event.target.value);
+            }
+          }/> */}
           <input type="password" placeholder='Password' onChange={
             (event)=>{
               setPassword(event.target.value);
