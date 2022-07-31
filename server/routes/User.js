@@ -24,6 +24,23 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.post('/:id/change-password', (req, res) => {
+    const userID = req.params.id;
+    const newPassword = req.body.newPassword;
+
+    con.query("UPDATE user SET password = ? WHERE userID = ?;",
+    [newPassword, userID],
+    (err, results) => {
+        if(err){
+            console.error(err);
+            res.status(500).json({errorMessage: err});
+        }
+        if(results.changedRows > 0){
+            res.json({newPassword});
+        }
+    });
+});
+
 router.post('/register', (req, res) =>{
 
     const loginID = req.body.data.loginID;

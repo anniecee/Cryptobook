@@ -9,10 +9,10 @@ import SearchPost from "./pages/SearchPost/SearchPost";
 import SignOut from "./pages/SignOut/SignOut";
 import Transactions from './pages/Transactions/Transactions';
 import Settings from './pages/Settings/Settings';
-import ChangeID from './pages/ChangeID/ChangeID';
 import ChangePassword from './pages/ChangePassword/ChangePassword';
 import UserInfo from './pages/UserInfo/UserInfo';
 import PersonalProfile from './pages/PersonalProfile/PersonalProfile';
+import ChangeUsername from './pages/ChangeUsername/ChangeUsername';
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           </Route>
           <Route path='/settings' element={<Settings />}>
           </Route>
-          <Route path='/changeID' element={<ChangeID />}>
+          <Route path='/changeUsername' element={<ChangeUsername />}>
           </Route>
           <Route path='/changePassword' element={<ChangePassword />}>
           </Route>
