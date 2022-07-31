@@ -20,7 +20,7 @@ Transaction
 - [x] CSS styling
 
 - **My Settings:** 
-- [] password changed and updated 
+- [ ] password changed and updated 
 - [ ] Database updated according to the changes and updates
 - [x] user Information displayed including (Name, Email, Following Count, Follower Count, UserID, userName)
 - [x] userName changed and updated
