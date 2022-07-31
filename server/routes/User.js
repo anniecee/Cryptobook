@@ -3,6 +3,27 @@ const router = express.Router();
 const con = require('../config/db');
 
 
+router.get('/:id', (req, res) => {
+    const userID = req.params.id;
+
+    con.query("SELECT * FROM user WHERE userID = ?;",
+    userID,
+    (err, results) => {
+        if(err){
+            console.error(err);
+            res.status(500).json({errorMessage: err});
+        }
+
+        if(results.length === 0){
+            res.json({
+                message: "User doesn't exist"
+            });
+        }
+        
+        res.json(results[0]);
+    });
+});
+
 router.post('/register', (req, res) =>{
 
     const loginID = req.body.loginID;
@@ -11,7 +32,6 @@ router.post('/register', (req, res) =>{
     con.query("INSERT INTO user (loginID, password) VALUES (?, ?);",
     [loginID, password],
     (err, results) => {
-        console.log(err);
         res.send(results);
 
         con.query("SELECT userID FROM user WHERE loginID = ?",
@@ -33,7 +53,6 @@ router.post('/register', (req, res) =>{
 });
 
 router.post('/login', (req, res) =>{
-
     const loginID = req.body.loginID;
     const password = req.body.password;
 

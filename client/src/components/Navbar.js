@@ -14,7 +14,7 @@ function Navbar() {
         <a href="/">Home</a>
         {loggedIn === 'true' ? (
           <>
-            <a href="/profile">Profile</a>
+            <a href="/settings">Settings</a>
             <a href="/createPost">Create Post</a>
             <a href="/searchPost">Search Post</a>
             <a href="/transactions">Transactions</a>

@@ -8,6 +8,12 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 import SearchPost from "./pages/SearchPost/SearchPost";
 import SignOut from "./pages/SignOut/SignOut";
 import Transactions from './pages/Transactions/Transactions';
+import Settings from './pages/Settings/Settings';
+import ChangeID from './pages/ChangeID/ChangeID';
+import ChangePassword from './pages/ChangePassword/ChangePassword';
+import UserInfo from './pages/UserInfo/UserInfo';
+import PersonalProfile from './pages/PersonalProfile/PersonalProfile';
+
 
 function App() {
   return (
@@ -28,6 +34,16 @@ function App() {
           <Route path='/signOut' element={<SignOut />}>
           </Route>
           <Route path='/Transactions' element={<Transactions />}>
+          </Route>
+          <Route path='/settings' element={<Settings />}>
+          </Route>
+          <Route path='/changeID' element={<ChangeID />}>
+          </Route>
+          <Route path='/changePassword' element={<ChangePassword />}>
+          </Route>
+          <Route path='/userInfo' element={<UserInfo />}>
+          </Route>
+          <Route path='/personalProfile' element={<PersonalProfile />}>
           </Route>
         </Routes>
       </BrowserRouter>
