@@ -39,7 +39,7 @@ router.post('/register', (req, res) =>{
         ((err2, results2)=>{
             const userID = results2[0].userID;
             con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
-            [loginID, loginID, password],
+            [userID, loginID, password],
             ((err, results)=>{
                 console.log(err)
             })
