@@ -4,19 +4,18 @@ import Axios from 'axios';
 
 import {useNavigate} from 'react-router-dom';
 
-function Login() {
+import {Formik, Form, Field, ErrorMessage} from 'formik';
+import * as Yup from 'yup'
 
-  const [loginID, setLoginID] = useState("");
-  const [password, setPassword] = useState("");
+function Login() {
 
   const [errMsg, setErrMsg] = useState("");
 
   let navigate = useNavigate();
 
-  const login = () => {
+  const login = (data) => {
     Axios.post("http://localhost:3001/user/login", {
-        loginID: loginID,
-      password: password
+        data
     }).then((response) => {
       if(response.data.loggedIn){
         localStorage.setItem("loggedIn", true);
@@ -32,10 +31,52 @@ function Login() {
     });
   };
 
+  const initialValues = {
+    loginID: "",
+    password: ""
+  }
+
+  const validationSchema = Yup.object().shape({
+    loginID: Yup.string().required(),
+    password: Yup.string().required(),
+  });
+
   return (
     <div className="Login">
       <h1>Login</h1>
-        <div className="LoginForm">
+      <Formik
+        initialValues={initialValues}
+        onSubmit={login}
+        validationSchema={validationSchema}
+      >
+      <Form className="formContainer">
+        <label>LoginID:</label>
+        <ErrorMessage name="loginID" component="span" />
+                <Field
+                autoComplete="off" 
+                id="inputLogin" 
+                name="loginID" 
+                placeholder="LoginID"/>
+      <label>password:</label>
+      <ErrorMessage name="password" component="span" />
+                <Field
+                autoComplete="off" 
+                id="inputLogin" 
+                name="password" 
+                placeholder="password"/>
+          
+          <button type="submit">Login</button>
+          
+      </ Form>
+      </ Formik>
+      <h1 style={{color: 'red'}}>{errMsg}</h1>
+    </div>
+  )
+}
+
+export default Login
+
+/*<div className="LoginForm">
           <input type="text" placeholder='LoginID' onChange={
             (event)=>{
                 setLoginID(event.target.value);
@@ -48,9 +89,4 @@ function Login() {
           }/>
           <button onClick={login}>Login</button>
           <h1 style={{color: 'red'}}>{errMsg}</h1>
-        </div>
-    </div>
-  )
-}
-
-export default Login
+        </div>*/
