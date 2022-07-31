@@ -60,6 +60,7 @@ function Login() {
       <label>password:</label>
       <ErrorMessage name="password" component="span" />
                 <Field
+                type="password"
                 autoComplete="off" 
                 id="inputLogin" 
                 name="password" 

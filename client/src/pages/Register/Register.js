@@ -10,8 +10,6 @@ import * as Yup from 'yup'
 
 function Register() {
 
-  const [loginID, setLoginID] = useState("");
-  const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
 
   let navigate = useNavigate();
@@ -124,12 +122,12 @@ export default Register
             (event)=>{
               setUsername(event.target.value);
             }
-          }/> */}
-          <input type="password" placeholder='Password' onChange={
+          }/> 
+          /*<input type="password" placeholder='Password' onChange={
             (event)=>{
               setPassword(event.target.value);
             }
           }/>
           <button onClick={register}>Register</button>
           <h1 style={{color: 'red'}}>{errMsg}</h1>
-        </div>*/
+        </div>*/ 
