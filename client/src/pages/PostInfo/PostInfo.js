@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./PostInfo.css"
 import Axios from 'axios';
-import {useNavigate} from 'react-router-dom';
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
 // Maybe have a separate page on nav bar for search 
 // (post max like count/ post by username/ post by name/ post by Crypto)

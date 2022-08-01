@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import "./Home.css"
-import {Image} from 'cloudinary-react'
 import  Axios  from 'axios';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-//import {useNavigate} from 'react-router-dom';
 
 function Home() {
 
