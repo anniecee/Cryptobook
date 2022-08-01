@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `account`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
   `accountID` char(40) NOT NULL,
-  `balance` decimal(10,0) DEFAULT NULL,
+  `balance` decimal(10,0) DEFAULT 0,
   `userID_account` INT DEFAULT NULL AUTO_INCREMENT,
   PRIMARY KEY (`accountID`),
   KEY `userID_account_idx` (`userID_account`),

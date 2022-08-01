@@ -41,6 +41,24 @@ router.post('/:id/change-password', (req, res) => {
     });
 });
 
+router.post('/:id/change-username', (req, res) => {
+    const userID = req.params.id;
+    const newUsername = req.body.newUsername;
+    
+    con.query("UPDATE user SET userName_user = ? WHERE userID = ?;",
+    [newUsername, userID],
+    (err, results) => {
+        console.error(err);
+        if(err){
+            console.error(err);
+            res.status(500).json({errorMessage: err});
+        }
+        if(results.changedRows > 0){
+            res.json({newUsername});
+        }
+    });
+});
+
 router.post('/register', (req, res) =>{
 
     const loginID = req.body.data.loginID;
@@ -52,12 +70,13 @@ router.post('/register', (req, res) =>{
     con.query("INSERT INTO user (loginID, password, email, userName_user, name) VALUES (?, ?, ?, ?, ?);",
     [loginID, password, email, userName_user, name],
     (err, results) => {
-
-        
-
+        console.log(err);
         con.query("SELECT userID FROM user WHERE loginID = ?",
         [loginID],
         ((err2, results2)=>{
+            if(results2.length === 0){
+                return res.json({errorMessage: "User not found"})
+            }
 
             const userID = results2[0].userID;
             con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
@@ -87,6 +106,7 @@ router.post('/login', (req, res) =>{
     const loginID = req.body.data.loginID;
     const password = req.body.data.password;
 
+    console.log("Got request", loginID, password);
     con.query("SELECT * FROM user WHERE loginID = ?;",
     loginID,
     (err, results) => {

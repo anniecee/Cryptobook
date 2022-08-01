@@ -1,0 +1,17 @@
+
+  .usernameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+  }
+
+ #changeUsernameButton {
+  height: 25px;
+  width: 200px;
+  font-size: 16px;
+  color: black;
+  background-color: #03b1fc;
+ }
