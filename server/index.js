@@ -20,6 +20,9 @@ app.use('/searchpost', searchPostRoute);
 const TransactionsRoute = require('./routes/Transactions');
 app.use('/transactions', TransactionsRoute);
 
+const accountRoute = require('./routes/Account');
+app.use('/account', accountRoute);
+
 
 app.get("/", (req, res) => {
     res.json("Hello Helen!");

@@ -103,6 +103,7 @@ function Register() {
                 placeholder="Password"/>
 
         <button type="submit">Register</button>
+        {errMsg}
       </Form>
 
       </Formik>

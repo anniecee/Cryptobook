@@ -13,6 +13,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword';
 import UserInfo from './pages/UserInfo/UserInfo';
 import PersonalProfile from './pages/PersonalProfile/PersonalProfile';
 import ChangeUsername from './pages/ChangeUsername/ChangeUsername';
+import Account from './pages/Account/Account';
 
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
           <Route path='/userInfo' element={<UserInfo />}>
           </Route>
           <Route path='/personalProfile' element={<PersonalProfile />}>
+          </Route>
+          <Route path='/account' element={<Account />}>
           </Route>
         </Routes>
       </BrowserRouter>
