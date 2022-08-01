@@ -5,6 +5,7 @@ import './Transactions.css';
 function Transactions() {
 
     const [transactions, setTransactions] = useState([]);
+    const [averages, setAverages] = useState([]);
 
     let requests = {
         crypto: false,
@@ -25,6 +26,14 @@ function Transactions() {
             setOptions(options);
         })
         }
+    
+    const getAverage = () =>{
+        Axios.get("http://localhost:3001/transactions/getAverage"
+        ).then((response)=>{
+            setAverages(response.data);
+            console.log(averages);
+        });
+    }
 
   return (
     <div>
@@ -104,7 +113,7 @@ function Transactions() {
             </div>
         {transactions.map((value)=>{
             return (
-            <div className="TableContent">
+                    <div className="TableContent">
                 {options.crypto ? (
                     <div className="TableContent">
                     {value.crypto}
@@ -143,7 +152,34 @@ function Transactions() {
         })}
         
         
-        
+    </div>
+    <div>
+    <div className="Transactions">
+        <button onClick={getAverage}>Show Market Price</button>
+        <div className="TableHeader">
+            <div className="Header">Crypto</div>
+            <div className="Header">Price</div>
+        </div>
+
+    
+    </div>
+    {averages.length > 0 ? (
+                <>
+                {averages.map((value)=>{
+                    return (
+                        <div className="TableContent">
+                            <div className="Content">{value.crypto}</div>
+                            <div className="Content">{value.avg_price}</div>
+                        </ div>
+                    )
+                })
+                
+            }
+            </>
+            
+        ): (
+            <></>
+        )}
 
 
     </div>

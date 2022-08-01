@@ -31,4 +31,14 @@ router.get('/', (req, res)=>{
 
 });
 
+router.get("/getAverage", (req, res)=>{
+    con.query("SELECT crypto, AVG(price) as avg_price FROM transaction GROUP BY crypto", 
+    (err, results)=>{
+        if(err){
+            console.log(err);
+        }
+        res.send(results);
+    })
+});
+
 module.exports = router;
