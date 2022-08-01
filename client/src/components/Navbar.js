@@ -17,6 +17,7 @@ function Navbar() {
             <a href="/profile">Profile</a>
             <a href="/createPost">Create Post</a>
             <a href="/searchPost">Search Post</a>
+            <a href="/postInfo">Post Info</a>
             <a href="/transactions">Transactions</a>
             <a href="/signOut">Sign Out</a>
           </>
