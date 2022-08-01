@@ -1,7 +1,7 @@
 ﻿# Cryptobook
 We created CryptoBook as a social media platform where users can have crypto-related conversations. Users can also use CryptoBook as a marketplace since we allow users to trade cryptocurrencies on this platform. 
 
-![Alt Text](https://media3.giphy.com/media/ROUmr1YyIB2YeymFZx/giphy.mp4)
+![Alt Text](https://media3.giphy.com/media/ROUmr1YyIB2YeymFZx/giphy.gif)
 
 Some functions on our platform includes:
 - News Feed to display new posts
