@@ -102,7 +102,7 @@ function SearchPost() {
   return (
     <div className="SearchPost">
       <h1>Search for posts:</h1>
-        <div className="RegisterForm">
+        <div className="SearchPostForm">
           {/* Search by name */}
           <input type="text" placeholder='By Real Name of user' 
           onChange={(event)=>{

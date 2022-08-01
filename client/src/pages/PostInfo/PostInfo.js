@@ -44,7 +44,7 @@ function PostInfo() {
   return (
     <div className="PostInfo">
       <h1>Search for post info:</h1>
-        <div className="RegisterForm">
+        <div className="PostInfoForm">
           {/* Search by like */}
           <input type="number" class="searchByLikeBox" placeholder='With at least X likes' 
           onChange={(event)=>{
