@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import SearchPost from "./pages/SearchPost/SearchPost";
+import PostInfo from "./pages/PostInfo/PostInfo";
 import SignOut from "./pages/SignOut/SignOut";
 import Transactions from './pages/Transactions/Transactions';
 import Settings from './pages/Settings/Settings';
@@ -30,6 +31,8 @@ function App() {
           <Route path='/CreatePost' element={<CreatePost />}>
           </Route>
           <Route path='/SearchPost' element={<SearchPost />}>
+          </Route>
+          <Route path='/PostInfo' element={<PostInfo />}>
           </Route>
           <Route path='/signOut' element={<SignOut />}>
           </Route>
