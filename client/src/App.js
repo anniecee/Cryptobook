@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import SearchPost from "./pages/SearchPost/SearchPost";
+import PostInfo from "./pages/PostInfo/PostInfo";
 import SignOut from "./pages/SignOut/SignOut";
 import Transactions from './pages/Transactions/Transactions';
 import Settings from './pages/Settings/Settings';
@@ -13,6 +14,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword';
 import UserInfo from './pages/UserInfo/UserInfo';
 import PersonalProfile from './pages/PersonalProfile/PersonalProfile';
 import ChangeUsername from './pages/ChangeUsername/ChangeUsername';
+import Account from './pages/Account/Account';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
           </Route>
           <Route path='/SearchPost' element={<SearchPost />}>
           </Route>
+          <Route path='/PostInfo' element={<PostInfo />}>
+          </Route>
           <Route path='/signOut' element={<SignOut />}>
           </Route>
           <Route path='/Transactions' element={<Transactions />}>
@@ -44,6 +48,8 @@ function App() {
           <Route path='/userInfo' element={<UserInfo />}>
           </Route>
           <Route path='/personalProfile' element={<PersonalProfile />}>
+          </Route>
+          <Route path='/account' element={<Account />}>
           </Route>
         </Routes>
       </BrowserRouter>

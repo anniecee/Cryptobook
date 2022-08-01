@@ -12,8 +12,6 @@ function SearchPost() {
     const [crypto, setCrypto] = useState("");
     const [posts, setPosts] = useState([]);
 
-    let navigate = useNavigate();
-    
     // Check login state
     useEffect(() => {
       if(!localStorage.getItem("loggedIn")){
@@ -104,14 +102,7 @@ function SearchPost() {
   return (
     <div className="SearchPost">
       <h1>Search for posts:</h1>
-        <div className="RegisterForm">
-          {/* Search by like */}
-          <input type="number" placeholder='With at least X likes' 
-          onChange={(event)=>{
-            setLike(event.target.value)
-          }}/>
-          <button onClick={searchByLike}>Search by like!</button>
-
+        <div className="SearchPostForm">
           {/* Search by name */}
           <input type="text" placeholder='By Real Name of user' 
           onChange={(event)=>{
@@ -138,54 +129,53 @@ function SearchPost() {
         </div>
         {/* Display post */}
         {posts.map((val, key)=>{
-        return(
-          <div className='Post'> 
-
-            {/* Content */}
-            <div className='Content'>
-              {/* Title */}
-              {val.type == "normal" ? (
-                    <div className="Title">
-                      Text Post by @{val.userID_post}
-                    </div>
-                ) : (
-                    <div className="Title">
-                      {val.type} {val.buyCrypto}{val.sellCrypto} at ${val.buyPrice}{val.sellPrice} / by @{val.userID_post}
-                    </div>
-                )}
-              {/* Text */}
-              <div className='Text'>{val.text}</div>
-            </div>
-
-            {/* Interaction */}
-            <div className='Interactions'>
-              {/* Like */}
-              <ThumbUpAltIcon id="likeButton"
-              onClick={()=>{likePost(val.postID, key);}}/>
-              {val.likeCount}
-              {/* Buy/Sell button */}
-              {val.type == "buy" ? (
-                    <div className='sellButton'>
-                      <button onClick={()=>{sellAction(val.postID);}}>Sell!</button>
-                    </div>
-                  ) : (
-                    val.type == "sell" ? (
-                      <div className='buyButton'>
-                        <button onClick={()=>{buyAction(val.postID);}}>Buy!</button>
-                      </div>
+            return(
+              <div className='Post'> 
+    
+                {/* Content */}
+                <div className='Content'>
+                  {/* Title */}
+                  {(val.type == "normal") ? (
+                        <div className="Title">
+                          Text Post by @{val.userID_post}
+                        </div>
                     ) : (
-                      <></>
-                  ))}
-              {/* Delete button */}
-              <div className='DeleteButton'>
-                <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
+                        <div className="Title">
+                          {val.type} {val.buyCrypto}{val.sellCrypto} at ${val.buyPrice}{val.sellPrice} / by @{val.userID_post}
+                        </div>
+                    )}
+                  {/* Text */}
+                  <div className='Text'>{val.text}</div>
+                </div>
+    
+                {/* Interaction */}
+                <div className='Interactions'>
+                  {/* Like */}
+                  <ThumbUpAltIcon id="likeButton"
+                  onClick={()=>{likePost(val.postID, key);}}/>
+                  {val.likeCount}
+                  {/* Buy/Sell button */}
+                  {val.type == "buy" ? (
+                        <div className='sellButton'>
+                          <button onClick={()=>{sellAction(val.postID);}}>Sell!</button>
+                        </div>
+                      ) : (
+                        val.type == "sell" ? (
+                          <div className='buyButton'>
+                            <button onClick={()=>{buyAction(val.postID);}}>Buy!</button>
+                          </div>
+                        ) : (
+                          <></>
+                      ))}
+                  {/* Delete button */}
+                  <div className='DeleteButton'>
+                    <button onClick={()=>{deletePost(val.postID);}}>Delete</button>
+                  </div>
+                </div>
+    
               </div>
-            </div>
-
-          </div>
-          )
-        })}
-        {/* End - Display post */}
+              )
+            })}
         {/* End - Display post */}
 
     </div>

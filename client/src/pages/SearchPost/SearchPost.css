@@ -1,10 +1,24 @@
 .SearchPost {
     width: 100%;
+    height: 750px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; 
+}
+
+.SearchPostForm {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchPostForm input, button {
+    margin: 10px;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
 }
 
 .Post {
@@ -18,10 +32,20 @@
 }
 
 .Content {
-    flex: 50%;
     display: flex;
     flex-direction: column;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.Ticks {
+    flex-direction: row;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+input.checkbox {
+	height: 14px;
+	width: 20px;
 }
 
 .Title{
