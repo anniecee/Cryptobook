@@ -18,6 +18,7 @@ function Navbar() {
             <a href="/createPost">Create Post</a>
             <a href="/searchPost">Search Post</a>
             <a href="/postInfo">Post Info</a>
+            <a href="/findSeller">Find Seller</a>
             <a href="/transactions">Transactions</a>
             <a href="/signOut">Sign Out</a>
           </>

@@ -21,6 +21,10 @@ app.use('/searchPost', searchPostRoute);
 const postInfoRoute = require('./routes/PostInfo');
 app.use('/postInfo', postInfoRoute);
 
+//Add route to findseller
+const findSellerRoute = require('./routes/FindSeller');
+app.use('/findSeller', findSellerRoute);
+
 const TransactionsRoute = require('./routes/Transactions');
 app.use('/transactions', TransactionsRoute);
 
