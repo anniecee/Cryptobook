@@ -9,7 +9,6 @@ Followers
 Transaction
 
 ## To do
-### Post-related part:
 
 - **Home:** 
 - [ ] Fix like button (minus number of likes + delete from likeEvent table) - can't fix
@@ -31,14 +30,13 @@ Transaction
 - [ ] Check back-end to update with new database (required)
 
 - **Search Post:**
-- [ ] Create a drop-down menu to show only 1 search option at once (extra)
-- [ ] Add displaying options for Search by Like (required)
+- [x] Add displaying options for Search by Like (required)
 - [x] Update display of post result after fixing post display in Home page
 - [x] CSS Styling
 
 - **Testing:**
 - [ ] Add test data for demo screenshots
-- [ ] Add demo screenshot for Delete cascade
+- [x] Add demo screenshot for Delete cascade
 
 ## Getting started:
 - Set up client:
