@@ -31,9 +31,9 @@ Some features on our platform includes:
 - [x] password changed and updated 
 - [x] Database updated according to the changes and updates
 - [x] user Information displayed including (Name, Email, Following Count, Follower Count, UserID, userName)
-- [ ] userName changed and updated
-- [ ] personal profile displayed
-- [ ] CSS styling
+- [x] userName changed and updated
+- [x] personal profile displayed
+- [x] CSS styling
 
 - **Create post:**
 - [ ] Check back-end to update with new database (required)
