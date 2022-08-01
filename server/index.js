@@ -13,9 +13,13 @@ const uploadRoute = require('./routes/Upload');
 app.use('/upload', uploadRoute);
 
 
-//Add route to searchPost
+//Add route to searchpost
 const searchPostRoute = require('./routes/SearchPost');
-app.use('/searchpost', searchPostRoute);
+app.use('/searchPost', searchPostRoute);
+
+//Add route to postinfo
+const postInfoRoute = require('./routes/PostInfo');
+app.use('/postInfo', postInfoRoute);
 
 const TransactionsRoute = require('./routes/Transactions');
 app.use('/transactions', TransactionsRoute);

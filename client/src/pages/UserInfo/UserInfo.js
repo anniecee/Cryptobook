@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import './userInfo.css';
 
 function UserInfo() {
   const USER_ID = localStorage.getItem("userID");
@@ -19,18 +20,19 @@ function UserInfo() {
   }, []);
 
   return (
-    <div>
-      <h1>User Info</h1>
+    <div className='UserInfoDisplay'>
+      <h1>My Profile</h1>
       {/* Display error message if exists */}
+      <img height="250" width="300" src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"></img>
       {errMsg && <h2 style={{color: 'red'}}>{errMsg}</h2>}
-       <p>Name: {user.name || "Empty"}</p>
-       <p>Username: {user.userName_user || "Empty"}</p>
-       <p>UserID: {user.userID}</p>
-       <p>LoginID: {user.loginID}</p>
-       <p>Email: {user.email || "Empty"}</p>
-       <p>Follower Count: {user.followerCount || 0}</p>
-       <p>Following Count: {user.followingCount || 0}</p>
-       <p>Password: {user.password}</p>
+       <p>My Name: {user.name || "Empty"}</p>
+       <p>My Username: {user.userName_user || "Empty"}</p>
+       <p>My UserID: {user.userID}</p>
+       <p>My LoginID: {user.loginID}</p>
+       <p>My Email: {user.email || "Empty"}</p>
+       <p>My Follower Count: {user.followerCount || 0}</p>
+       <p>My Following Count: {user.followingCount || 0}</p>
+       <p>My Password: {user.password}</p>
     </div>
   )
 }

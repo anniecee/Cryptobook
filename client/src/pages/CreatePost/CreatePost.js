@@ -27,7 +27,7 @@ function CreatePost() {
   return (
     <div className="CreatePost">
       <h1>Create a Post</h1>
-        <div className="RegisterForm">
+        <div className="CreatePostForm">
           <input type="text" placeholder='Text' 
           onChange={(event)=>{
             setText(event.target.value)
