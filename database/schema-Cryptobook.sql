@@ -320,7 +320,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`user` (
-  `userID` INT NOT NULL,
+  `userID` INT NOT NULL AUTO_INCREMENT,
   `name` CHAR(40) NULL,
   `email` CHAR(40) NULL,
   `followingCount` INT NULL,

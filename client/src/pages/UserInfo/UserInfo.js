@@ -30,8 +30,8 @@ function UserInfo() {
        <p>My UserID: {user.userID}</p>
        <p>My LoginID: {user.loginID}</p>
        <p>My Email: {user.email || "Empty"}</p>
-       <p>My Follower Count: {user.followerCount || 0}</p>
-       <p>My Following Count: {user.followingCount || 0}</p>
+       <p>My Follower Count: {user.followerCount}</p>
+       <p>My Following Count: {user.followingCount}</p>
        <p>My Password: {user.password}</p>
     </div>
   )

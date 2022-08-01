@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './changePassword.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
  function ChangePassword() {
     const USER_ID = localStorage.getItem("userID");
@@ -26,11 +28,17 @@ import './changePassword.css';
         if(response.data){
           setCurrentPassword(response.data.newPassword);
           setNewPassword("");
+          notify();
         }else{
           setErrMsg(response.data.message);
         }
       });
     };
+
+    const notify = () => toast(`Your password has changed`, {
+      position: "bottom-center",
+      autoClose: 3000,
+    });
 
   return (
     <div className="passwordContainer">
@@ -39,15 +47,9 @@ import './changePassword.css';
         <img src="https://s3-us-west-2.amazonaws.com/shipsy-public-assets/shipsy/SHIPSY_LOGO_BIRD_BLUE.png"></img>
       </div>
       <div className="passwordForm">
-        <p>New Password: {currentPassword}
-        <input class="passwordInput" type="password" placeholder='NewPassword' onChange={
-            (event)=>{ 
-              setNewPassword(event.target.value);
-            }
-          }/>
-          </p>
-          <label>Confirm Password: </label>
-          <input class="passwordInput" type="password" placeholder='ConfirmPassword' onChange={
+        <p>Current Password: {currentPassword} </p>
+          <label>New Password: </label>
+          <input class="passwordInput" type="password" placeholder='New Password' onChange={
             (event)=>{ 
               setNewPassword(event.target.value);
             }
@@ -55,6 +57,8 @@ import './changePassword.css';
       </div>
       <button id="changePasswordButton" onClick={changePassword}>Change Password</button>
           <h1 style={{color: 'red'}}>{errMsg}</h1>
+                    <ToastContainer />
+
     </div>
   )
 }

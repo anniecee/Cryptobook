@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import "./SearchPost.css"
 import Axios from 'axios';
-import {useNavigate} from 'react-router-dom';
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 
 // Maybe have a separate page on nav bar for search 
 // (post max like count/ post by username/ post by name/ post by Crypto)
 function SearchPost() {
-    const [like, setLike] = useState(0);
     const [name, setName] = useState("");
     const [crypto, setCrypto] = useState("");
     const [posts, setPosts] = useState([]);
@@ -18,17 +16,6 @@ function SearchPost() {
         localStorage.setItem("loggedIn", false);
       }
     }, []);
-
-    // Search by Like
-    const searchByLike = () => {
-      Axios.get("http://localhost:3001/searchpost/byLike",
-          {params: {like: like}}
-      ).then((response)=>{
-        // Display posts as requested
-        setPosts(response.data);
-        console.log(response.data);
-      });
-    };
 
     // Search by Real Name of User
     const searchByName = () => {
