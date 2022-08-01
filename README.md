@@ -1,12 +1,14 @@
 ﻿# Cryptobook
+We created CryptoBook as a social media platform where users can have crypto-related conversations. Users can also use CryptoBook as a marketplace since we allow users to trade cryptocurrencies on this platform. 
 
-To do:
+![Alt Text](https://media3.giphy.com/media/ROUmr1YyIB2YeymFZx/giphy.mp4)
 
-settings page
-profile page
-loggedIn weird bug
-Followers
-Transaction
+Some functions on our platform includes:
+- News Feed to display new posts
+- Feature to create new post
+- Feature to search for posts (by cryptocurrencies being traded, by name of post owner, by number of minimum likes, find post with most like counts)
+- Feature to see transactions being made in the market & market price
+- Users can update their profiles, credentials, add banking info, etc.
 
 ## To do
 
@@ -44,14 +46,12 @@ Transaction
 cd client
 npm i -g yarn
 npm i
-yarn start
 ```
 
 - Set up server:
 ```
 cd server
 npm i
-npm run dev
 ```
 
 ## Running:
