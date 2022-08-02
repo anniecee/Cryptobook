@@ -7,7 +7,7 @@ function CreatePost() {
     const [text, setText] = useState("");
     const [price, setPrice] = useState(0); 
     const [crypto, setCrypto] = useState("");  
-    const [type, setType] = useState("");  
+    const [type, setType] = useState("normal");  
 
     let navigate = useNavigate();
     

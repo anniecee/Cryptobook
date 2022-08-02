@@ -1,17 +1,17 @@
 -- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
 SET FOREIGN_KEY_CHECKS=0;
+USE cryptodatabase;
 DROP TABLE IF EXISTS `buyPost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `buyPost` (
   `buypostID` INT NOT NULL,
-  `transactionID_buy` INT NOT NULL,
+  `transactionID_buy` INT NULL,
   `buyPrice` decimal(10,0) DEFAULT NULL,
   `buyCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`buypostID`),
   KEY `transactionID_buy_idx` (`transactionID_buy`),
-  CONSTRAINT `buypostID` FOREIGN KEY (`buypostID`) REFERENCES `post` (`postID`) ON DELETE CASCADE,
-  CONSTRAINT `transactionID_buy` FOREIGN KEY (`transactionID_buy`) REFERENCES `transaction` (`transactionID`) ON DELETE CASCADE
+  CONSTRAINT `buypostID` FOREIGN KEY (`buypostID`) REFERENCES `post` (`postID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

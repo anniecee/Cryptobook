@@ -21,6 +21,7 @@ router.post('/', (req, res) =>{
     const userID = req.body.userID;
     const crypto = req.body.crypto;
     const price = req.body.price;
+
     console.log(type);
 
     // Update POST table
@@ -32,10 +33,11 @@ router.post('/', (req, res) =>{
         }
         else {
             res.send(results);
+            const postID = results.insertId;
 
             // Update table sellpost
             if (type == "sell") {
-                const sell_postID = results[0].postID;
+                const sell_postID = postID;
 
                 con.query("INSERT INTO sellpost (sell_postID, sellPrice, sellCrypto) VALUES (?, ?, ?);",
                 [sell_postID, price, crypto]
@@ -51,7 +53,7 @@ router.post('/', (req, res) =>{
 
             // Update table buypost
             else if (type == "buy") {
-                const buypostID = results[0].postID;
+                const buypostID = postID;
 
                 con.query("INSERT INTO buypost (buypostID, buyPrice, buyCrypto) VALUES (?, ?, ?);",
                 [buypostID, price, crypto]

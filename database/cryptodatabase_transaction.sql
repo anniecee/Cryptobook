@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction` (
-  `transactionID` INT NOT NULL ,
+  `transactionID` INT NULL ,
   `crypto` char(20) DEFAULT NULL,
   `price` decimal(10,0) DEFAULT NULL,
   `type` char(10) DEFAULT NULL,
