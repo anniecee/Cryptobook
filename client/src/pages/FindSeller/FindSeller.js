@@ -42,7 +42,7 @@ function FindSeller() {
             <h1>RESULTS:</h1>
             <div className="Result">
                 <div>
-                  Seems like @{userID} is an active seller on CryptoBook!
+                  Seems like user with ID @{userID} is an active seller on CryptoBook!
                 </div>
             </div>
           </div>

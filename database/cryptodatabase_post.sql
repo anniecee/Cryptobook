@@ -20,7 +20,7 @@ CREATE TABLE  `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE cryptodatabase.`post` DISABLE KEYS */;
-INSERT INTO `post` VALUES (1,1,'Novice Traders trade 5 to 10 times too big. They are taking 5 to 10 percent risk, on a trade they should be taking 1 to 2 percent risk on.',10,'sell'),(2,2,'There is no single market secret to discover, no single correct way to trade the markets.',200,'buy'),(3,3,'Time is your friend; impulse is your enemy',100,'normal'),(4,4,'The market today is to the moon.',1000,'sell'),(5,5,'All the math you need in the stock market you get in the fourth grade.\n\nAll the math you need in the stock market you get in the fourth grade',40,'sell');
+INSERT INTO `post` VALUES (1,3,'Novice Traders trade 5 to 10 times too big. They are taking 5 to 10 percent risk, on a trade they should be taking 1 to 2 percent risk on.',10,'normal'),(2,2,'There is no single market secret to discover, no single correct way to trade the markets.',200,'sell'),(3,2,'Time is your friend; impulse is your enemy',100,'sell'),(4,4,'The market today is to the moon.',1000,'buy'),(5,1,'All the math you need in the stock market you get in the fourth grade.',40,'buy'),(6,2,'0.01% of Crypto Accounts Control 27% of Bitcoin According to a New Report',50,'buy'),(7,1,'If investing in crypto was easy, we would all be rich.',30,'buy'),(8,5,'I wish daycare accepted crypto',60,'normal');
 SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE cryptodatabase.`post` ENABLE KEYS */;
 UNLOCK TABLES;
