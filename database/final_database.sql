@@ -92,11 +92,10 @@ DROP TABLE IF EXISTS `cryptodatabase`.`buyPost` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`buyPost` (
   `buypostID` INT NOT NULL,
-  `transactionID_buy` INT NOT NULL,
+  `transactionID_buy` INT NULL,
   `buyPrice` DECIMAL(10) NULL,
   `buyCrypto` CHAR(10) NULL,
-  PRIMARY KEY (`buypostID`, `transactionID_buy`),
-  INDEX `transactionID_buy_idx` (`transactionID_buy` ASC),
+  PRIMARY KEY (`buypostID`),
   CONSTRAINT `buypostID`
     FOREIGN KEY (`buypostID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
@@ -271,11 +270,10 @@ DROP TABLE IF EXISTS `cryptodatabase`.`sellPost` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`sellPost` (
   `sell_postID` INT NOT NULL,
-  `sell_transactionID` INT NOT NULL,
+  `sell_transactionID` INT NULL,
   `sellPrice` DECIMAL(10) NULL,
   `sellCrypto` CHAR(10) NULL,
-  PRIMARY KEY (`sell_postID`, `sell_transactionID`),
-  INDEX `sell_transactionID_idx` (`sell_transactionID` ASC),
+  PRIMARY KEY (`sell_postID`),
   CONSTRAINT `sell_postID`
     FOREIGN KEY (`sell_postID`)
     REFERENCES `cryptodatabase`.`post` (`postID`)
@@ -512,9 +510,7 @@ CREATE TABLE `sellPost` (
   `sellPrice` decimal(10,0) DEFAULT NULL,
   `sellCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`sell_postID`),
-  KEY `sell_transactionID_idx` (`sell_transactionID`),
-  CONSTRAINT `sell_postID` FOREIGN KEY (`sell_postID`) REFERENCES `post` (`postID`) ON DELETE CASCADE,
-  CONSTRAINT `sell_transactionID` FOREIGN KEY (`sell_transactionID`) REFERENCES `transaction` (`transactionID`)
+  CONSTRAINT `sell_postID` FOREIGN KEY (`sell_postID`) REFERENCES `post` (`postID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -775,7 +771,7 @@ CREATE TABLE `credentials` (
 
 LOCK TABLES `credentials` WRITE;
 /*!40000 ALTER TABLE `credentials` DISABLE KEYS */;
-INSERT INTO `credentials` VALUES ('gmng',4,'daksl2@4$!hmg'),('helensfu11',2,'frdft-rofdw-12'),('nth@43',5,'wvfdklv324kl1!!4'),('peannie1',1,'amvlekc3@gjs!'),('sampiu2',3,'sbk53kf1#11\nbk53kf1#11\nsbk53kf1#11');
+INSERT INTO `credentials` VALUES ('gmng',4,'dlsjg2@4$!'),('helensfu11',2,'front-door-row'),('nth@43',5,'welcome-to-home'),('peannie1',1,'annIeCungsuperKuTe@sfu'),('sampiu2',3,'samUeL#11');
 SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `credentials` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -803,9 +799,7 @@ CREATE TABLE `buyPost` (
   `buyPrice` decimal(10,0) DEFAULT NULL,
   `buyCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`buypostID`),
-  KEY `transactionID_buy_idx` (`transactionID_buy`),
-  CONSTRAINT `buypostID` FOREIGN KEY (`buypostID`) REFERENCES `post` (`postID`) ON DELETE CASCADE,
-  CONSTRAINT `transactionID_buy` FOREIGN KEY (`transactionID_buy`) REFERENCES `transaction` (`transactionID`) ON DELETE CASCADE
+  CONSTRAINT `buypostID` FOREIGN KEY (`buypostID`) REFERENCES `post` (`postID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -45,9 +45,6 @@ router.post('/', (req, res) =>{
                     if(err2){
                         console.log(err2);
                     }
-                    else {
-                        res.send(res2);
-                    }
                 })
             }    
 
@@ -60,9 +57,6 @@ router.post('/', (req, res) =>{
                 ,(err3, res3) => {
                     if(err3){
                         console.log(err3);
-                    }
-                    else {
-                        res.send(res3);
                     }
                 })
             }
