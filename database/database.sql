@@ -508,7 +508,7 @@ DROP TABLE IF EXISTS `sellPost`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sellPost` (
   `sell_postID` INT NOT NULL,
-  `sell_transactionID` INT NOT NULL,
+  `sell_transactionID` INT DEFAULT NULL,
   `sellPrice` decimal(10,0) DEFAULT NULL,
   `sellCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`sell_postID`),
@@ -799,7 +799,7 @@ DROP TABLE IF EXISTS `buyPost`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `buyPost` (
   `buypostID` INT NOT NULL,
-  `transactionID_buy` INT NOT NULL,
+  `transactionID_buy` INT DEFAULT NULL,
   `buyPrice` decimal(10,0) DEFAULT NULL,
   `buyCrypto` char(10) DEFAULT NULL,
   PRIMARY KEY (`buypostID`),
