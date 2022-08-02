@@ -69,7 +69,7 @@ function Home() {
               {/* Title */}
               {val.type == "normal" ? (
                     <div className="Title">
-                      Text Post by @{val.userName_user}
+                      Text Post / by @{val.userName_user}
                     </div>
                 ) : (
                     <div className="Title">

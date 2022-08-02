@@ -9,19 +9,18 @@
 }
 
 .Home .Post {
-    width: 800px;
+    width: 700px;
     height: 500px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     margin: 50px;
-}
-
-.Home .Post {
     flex: 70%;
 }
 
-.Home .Post .Content {
+.Home .Content {
+    border: none;
+    width: 500px;
     flex: 50%;
     display: flex;
     flex-direction: column;

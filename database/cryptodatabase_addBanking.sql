@@ -1,30 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
---
--- Host: localhost    Database: cryptodatabase
--- ------------------------------------------------------
--- Server version	8.0.29
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `addBanking`
---
-
+SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `addBanking`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `addBanking` (
-  `cardID_addBanking` char(40) NOT NULL,
-  `userID_addBanking` INT NOT NULL AUTO_INCREMENT,
+  `cardID_addBanking` INT NOT NULL,
+  `userID_addBanking` INT NOT NULL,
   PRIMARY KEY (`cardID_addBanking`,`userID_addBanking`),
   KEY `userID_addBanking_idx` (`userID_addBanking`),
   CONSTRAINT `cardID_addBanking` FOREIGN KEY (`cardID_addBanking`) REFERENCES `bankingInfo` (`cardID_bankinginfo`),
@@ -38,7 +18,8 @@ CREATE TABLE `addBanking` (
 
 LOCK TABLES `addBanking` WRITE;
 /*!40000 ALTER TABLE `addBanking` DISABLE KEYS */;
-INSERT INTO `addBanking` VALUES ('1736496038',123),('1827261837',223),('4859385015',321),('3382211834',145),('1746639600',221);
+INSERT INTO `addBanking` VALUES (12,123),(22,1),(32,2),(42,3),(52,4);
+SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `addBanking` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,3 +33,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-07-27 15:14:52
+SET FOREIGN_KEY_CHECKS=1;

@@ -112,7 +112,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `cryptodatabase`.`credentials` ;
 
 CREATE TABLE IF NOT EXISTS `cryptodatabase`.`credentials` (
-  `loginID_credential` INT NOT NULL,
+  `loginID_credential`CHAR(40) NOT NULL,
   `userID_credential` INT NULL,
   `password_credential` CHAR(40) NULL,
   PRIMARY KEY (`loginID_credential`),
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `cryptodatabase`.`user` (
   `email` CHAR(40) NULL,
   `followingCount` INT NULL,
   `followerCount` INT NULL,
-  `loginID` INT NULL,
+  `loginID` CHAR(40) NULL,
   `password` CHAR(40) NULL,
   `userName_user` CHAR(40) NULL,
   PRIMARY KEY (`userID`),
@@ -345,5 +345,7 @@ ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET FOREIGN_KEY_CHECKS=1;
+SET GLOBAL FOREIGN_KEY_CHECKS=1;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
