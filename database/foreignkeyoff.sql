@@ -1,7 +1,0 @@
--- set for the current session:
-SET FOREIGN_KEY_CHECKS=0;
-
--- set globally:
-SET GLOBAL FOREIGN_KEY_CHECKS=0;
-
-SHOW GLOBAL VARIABLES LIKE 'FOREIGN_KEY_CHECKS';

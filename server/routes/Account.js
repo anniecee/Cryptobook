@@ -20,7 +20,7 @@ router.get("/", (req, res)=>{
 router.get("/cards", (req, res)=>{
     const userID = req.query.userID;
 
-    con.query("SELECT * FROM bankinginfo WHERE userID = ?",
+    con.query("SELECT * FROM bankinginfo WHERE userID_bankingInfo = ?",
     [userID],
     (err, results)=>{
         if(err){
@@ -41,7 +41,7 @@ router.post("/addcard", (req, res)=>{
         if(err){
             console.log(err);
         }
-        con.query("SELECT * FROM bankinginfo WHERE userID=?",
+        con.query("SELECT * FROM bankinginfo WHERE userID_bankingInfo=?",
         [userID],
         (err2, results2)=>{
             res.send(results2);

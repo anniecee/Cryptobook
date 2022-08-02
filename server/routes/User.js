@@ -79,6 +79,16 @@ router.post('/register', (req, res) =>{
             }
 
             const userID = results2[0].userID;
+
+            con.query("INSERT INTO account (userID_account) VALUES (?)",
+            [userID],
+            (err, results)=>{
+                if(err){
+                    console.log(err);
+                }
+            }
+            )
+
             con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
             [userID, loginID, password],
             ((err, results)=>{
