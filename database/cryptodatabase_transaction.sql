@@ -1,35 +1,16 @@
--- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
---
--- Host: localhost    Database: cryptodatabase
--- ------------------------------------------------------
--- Server version	8.0.29
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `transaction`
---
+SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transaction` (
-  `transactionID` INT NOT NULL AUTO_INCREMENT,
+  `transactionID` INT NOT NULL ,
   `crypto` char(20) DEFAULT NULL,
   `price` decimal(10,0) DEFAULT NULL,
   `type` char(10) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
-  `postID_transaction` char(40) DEFAULT NULL,
-  `accountID_transaction` char(40) DEFAULT NULL,
+  `postID_transaction` INT DEFAULT NULL,
+  `accountID_transaction` INT DEFAULT NULL,
   PRIMARY KEY (`transactionID`),
   KEY `transactionID_idx` (`transactionID`),
   KEY `postID_transaction_idx` (`postID_transaction`),
@@ -45,7 +26,8 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (23992,'BNB',215,'Buy','2020-01-01 01:20:59','5492929','dglf4kfls4kl!@4l'),(49323,'Bitcoin',20496,'Sell','2019-05-11 21:59:59','3958603','11114o%mfgfg@557'),(34123,'Solana',103,'Sell','2020-11-12 20:29:49',NULL,'5969604869363n46'),(23124,'Tether',1,'Buy','2018-05-12 07:09:00','3940502','ab35k6l!3l@4k3lf'),(32945,'Ethereum',1065,'Sell','2019-01-02 00:00:00','3939502','akfl35063!mbgks#');
+INSERT INTO `transaction` VALUES (23992,'BNB',215,'Buy','2020-01-01 01:20:59',1,1),(49323,'Bitcoin',20496,'Sell','2019-05-11 21:59:59',2,2),(34123,'Solana',103,'Sell','2020-11-12 20:29:49',NULL,3),(23124,'Tether',1,'Buy','2018-05-12 07:09:00',4,4),(32945,'Ethereum',1065,'Sell','2019-01-02 00:00:00',5,5);
+SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,3 +41,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-07-27 15:14:52
+SET FOREIGN_KEY_CHECKS=1;

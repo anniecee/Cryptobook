@@ -1,32 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
---
--- Host: localhost    Database: cryptodatabase
--- ------------------------------------------------------
--- Server version	8.0.29
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `bankingInfo`
---
+SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `bankingInfo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bankingInfo` (
-  `cardID_bankinginfo` char(40) NOT NULL,
-  `cardNumber_bankinginfo` int DEFAULT NULL,
+  `cardID_bankinginfo` INT NOT NULL AUTO_INCREMENT,
+  `cardNumber_bankinginfo` INT DEFAULT NULL,
   `nameOnCard` char(40) DEFAULT NULL,
-  PRIMARY KEY (`cardID_bankinginfo`)
+  `userID_bankingInfo` INT NOT NULL,
+  PRIMARY KEY (`cardID_bankinginfo`),
+  CONSTRAINT `userID_bankingInfo` FOREIGN KEY (`userID_bankingInfo`) REFERENCES `user` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +19,8 @@ CREATE TABLE `bankingInfo` (
 
 LOCK TABLES `bankingInfo` WRITE;
 /*!40000 ALTER TABLE `bankingInfo` DISABLE KEYS */;
-INSERT INTO `bankingInfo` VALUES ('29ght38583059',398593038,'NATHAN DINH'),('3928504938ab3',123456543,'ANNIE CUNG'),('3958abf602958',234567804,'SAM P'),('395ri38482018',294859329,'HELEN M'),('49604hlk86262',129434828,'MICHAEL LEE');
+INSERT INTO `bankingInfo` VALUES (12345,398593038,'NATHAN DINH',1),(12346,123456543,'ANNIE CUNG',2),(12347,234567804,'SAM P',3),(12348,294859329,'HELEN M',4),(123459,129434828,'MICHAEL LEE',5);
+SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `bankingInfo` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,3 +34,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-07-27 15:14:52
+SET FOREIGN_KEY_CHECKS=1;

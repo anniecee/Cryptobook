@@ -18,17 +18,18 @@
 --
 -- Table structure for table `credentials`
 --
+SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `credentials`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `credentials` (
   `loginID_credential` char(40) NOT NULL,
-  `userID_credential` INT DEFAULT NULL AUTO_INCREMENT,
+  `userID_credential` INT DEFAULT NULL,
   `password_credential` char(40) DEFAULT NULL,
   PRIMARY KEY (`loginID_credential`),
-  /*KEY `userID_credential_idx` (`userID_credential`),*/
-  /*CONSTRAINT `userID_credential` FOREIGN KEY (`userID_credential`) REFERENCES `user` (`userID`)*/
+  KEY `userID_credential_idx` (`userID_credential`),
+  CONSTRAINT `userID_credential` FOREIGN KEY (`userID_credential`) REFERENCES `user` (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +39,8 @@ CREATE TABLE `credentials` (
 
 LOCK TABLES `credentials` WRITE;
 /*!40000 ALTER TABLE `credentials` DISABLE KEYS */;
-INSERT INTO `credentials` VALUES ('gmng',145,'daksl2@4$!hmg'),('helensfu11',223,'frdft-rofdw-12'),('nth@43',221,'wvfdklv324kl1!!4'),('peannie1',123,'amvlekc3@gjs!'),('sampiu2',321,'sbk53kf1#11\nbk53kf1#11\nsbk53kf1#11');
+INSERT INTO `credentials` VALUES ('gmng',4,'daksl2@4$!hmg'),('helensfu11',2,'frdft-rofdw-12'),('nth@43',5,'wvfdklv324kl1!!4'),('peannie1',1,'amvlekc3@gjs!'),('sampiu2',3,'sbk53kf1#11\nbk53kf1#11\nsbk53kf1#11');
+SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `credentials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,3 +54,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-07-27 15:14:53
+SET FOREIGN_KEY_CHECKS=1;
