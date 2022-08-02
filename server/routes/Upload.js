@@ -18,10 +18,12 @@ router.get("/", (req, res) => {
 router.post('/', (req, res) =>{
     const text = req.body.text;
     const type = req.body.type;
-    const userID = req.body.userId;
+    const userID = req.body.userID;
+    const crypto = req.body.crypto;
+    const price = req.body.price;
     console.log(type);
 
-    // Update post table
+    // Update POST table
     con.query("INSERT INTO post (userID_post, text, likeCount, type) VALUES (?, ?, ?, ?);",
     [userID, text, 0, type]
     ,(err, results) => {
@@ -31,17 +33,37 @@ router.post('/', (req, res) =>{
         else {
             res.send(results);
 
-            // // Update table sellpost
-            // const sell_postID = results[0].;
+            // Update table sellpost
+            if (type == "sell") {
+                const sell_postID = results[0].postID;
 
-            // if (type == "sell") {
-            //     con.query("INSERT INTO sellpost (sell_postID, sell_transactionID, sellPrice, sellCrypto) VALUES (?, ?, ?, ?);",
-            //     [userID, text, 0, type]
-            //     ,(err, results) => {
-            //         if(err){
-            //             console.log(err);
-            //         }
-            // }
+                con.query("INSERT INTO sellpost (sell_postID, sellPrice, sellCrypto) VALUES (?, ?, ?);",
+                [sell_postID, price, crypto]
+                ,(err2, res2) => {
+                    if(err2){
+                        console.log(err2);
+                    }
+                    else {
+                        res.send(res2);
+                    }
+                })
+            }    
+
+            // Update table buypost
+            else if (type == "buy") {
+                const buypostID = results[0].postID;
+
+                con.query("INSERT INTO buypost (buypostID, buyPrice, buyCrypto) VALUES (?, ?, ?);",
+                [buypostID, price, crypto]
+                ,(err3, res3) => {
+                    if(err3){
+                        console.log(err3);
+                    }
+                    else {
+                        res.send(res3);
+                    }
+                })
+            }
         }
     });
 
