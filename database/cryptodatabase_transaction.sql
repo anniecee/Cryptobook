@@ -26,7 +26,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (23992,'BNB',215,'Buy','2020-01-01 01:20:59',1,1),(49323,'Bitcoin',20496,'Sell','2019-05-11 21:59:59',2,2),(34123,'Solana',103,'Sell','2020-11-12 20:29:49',NULL,3),(23124,'Tether',1,'Buy','2018-05-12 07:09:00',4,4),(32945,'Ethereum',1065,'Sell','2019-01-02 00:00:00',5,5);
+INSERT INTO `transaction` VALUES (1,'Ethereum',1002,'Sell','2018-05-12 07:09:00',2,1),(2,'Bitcoin',20496,'Sell','2020-01-01 01:20:59',3,2),(3,'Solana',32,'Buy','2019-01-02 00:00:00',4,3),(4,'BNB',215,'Buy','2020-11-12 20:29:49',5,4),(5,'Bitcoin',23000,'Buy','2019-05-11 21:59:59',6,5), (6,'Bitcoin',21000,'Buy','2021-05-11 21:59:59',7,6);
 SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
