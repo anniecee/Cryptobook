@@ -21,7 +21,7 @@ CREATE TABLE `buyPost` (
 
 LOCK TABLES `buyPost` WRITE;
 /*!40000 ALTER TABLE `buyPost` DISABLE KEYS */;
-INSERT INTO `buyPost` VALUES (4,23992,1025,'Ethereum'),(5,49323,1024,'Ethereum'),(6,34123,218,'BNB'),(7,23124,32,'Solana');
+INSERT INTO `buyPost` VALUES (4,3,32,'Solana'),(5,4,215,'BNB'),(6,5,23000,'Bitcoin'),(7,6,21000,'Bitcoin');
 SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `buyPost` ENABLE KEYS */;
 

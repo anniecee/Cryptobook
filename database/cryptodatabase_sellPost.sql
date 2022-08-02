@@ -21,7 +21,7 @@ CREATE TABLE `sellPost` (
 
 LOCK TABLES `sellPost` WRITE;
 /*!40000 ALTER TABLE `sellPost` DISABLE KEYS */;
-INSERT INTO `sellPost` VALUES (1,1,1065,'Ethereum'),(2,2,1002,'Ethereum'),(3,3,20496,'Bitcoin');
+INSERT INTO `sellPost` VALUES (2,1,1002,'Ethereum'),(3,2,20496,'Bitcoin');
 SET FOREIGN_KEY_CHECKS=1;
 /*!40000 ALTER TABLE `sellPost` ENABLE KEYS */;
 UNLOCK TABLES;
