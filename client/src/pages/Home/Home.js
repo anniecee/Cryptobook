@@ -67,7 +67,7 @@ function Home() {
             {/* Content */}
             <div className='Content'>
               {/* Title */}
-              {val.type == "normal" ? (
+              {(val.type == "normal" || val.type == "") ? (
                     <div className="Title">
                       Text Post / by @{val.userName_user}
                     </div>
