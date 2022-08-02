@@ -17,13 +17,6 @@ Some features on our platform includes:
 - NodeJS
 - MySQL
 
-## To do
-- **Create post:**
-- [ ] Check back-end to update with new database (required)
-
-- **Testing:**
-- [ ] Add test data for demo screenshots
-
 ## Getting started:
 - Set up client:
 ```
