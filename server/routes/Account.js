@@ -35,7 +35,7 @@ router.post("/addcard", (req, res)=>{
     const nameOnCard = req.body.nameOnCard;
     const cardNumber_bankinginfo = req.body.cardNumber;
 
-    con.query("INSERT INTO bankinginfo (userID, nameOnCard, cardNumber_bankinginfo) VALUES (?, ?, ?)",
+    con.query("INSERT INTO bankinginfo (userID_bankingInfo, nameOnCard, cardNumber_bankinginfo) VALUES (?, ?, ?)",
     [userID, nameOnCard, cardNumber_bankinginfo],
     (err, results)=>{
         if(err){
