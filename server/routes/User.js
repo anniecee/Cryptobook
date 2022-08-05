@@ -67,6 +67,12 @@ router.post('/register', (req, res) =>{
     const userName_user = req.body.data.userName_user;
     const name = req.body.data.name;
 
+    con.query("INSERT INTO credentials (loginID_credential, password_credential) VALUES (?, ?)",
+    [loginID, password],
+    (err, results)=>{
+        if(err){console.log(err)}
+    })
+
     con.query("INSERT INTO user (loginID, password, email, userName_user, name) VALUES (?, ?, ?, ?, ?);",
     [loginID, password, email, userName_user, name],
     (err, results) => {
@@ -86,23 +92,18 @@ router.post('/register', (req, res) =>{
                 if(err){
                     console.log(err);
                 }
+                
             }
             )
 
-            con.query("INSERT INTO credentials (userID_credential, loginID_credential, password_credential) VALUES (?, ?, ?)",
-            [userID, loginID, password],
-            ((err, results)=>{
-                console.log(err)
+            var resultsFinal = {
+                loginID: loginID,
+                userID: userID,
+                userName_user: userName_user
+            }
+            res.send(resultsFinal);
 
-                var resultsFinal = {
-                    loginID: loginID,
-                    userID: userID,
-                    userName_user: userName_user
-                }
-
-                res.send(resultsFinal);
-            })
-            )
+            
         }))
     });
 
